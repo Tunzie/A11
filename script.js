@@ -2,7 +2,8 @@
 const fakeAirQualityData = { parameter: "PM2.5", value: 18, unit: "µg/m³" };
 const fakeWaterQualityData = { parameter: "pH", value: 7.2 };
 const fakeWeatherConditionsData = { temperature: 25, humidity: 60, windSpeed: 10 };
-
+// Fake data for demonstration purposes
+const fakeLandQualityData = { parameter: "Soil pH", value: 6.5 };
 // Function to update the displayed data
 function updateData(elementId, data) {
     const element = document.getElementById(elementId);
@@ -69,6 +70,7 @@ window.onload = function () {
     updateData("airQualityData", fakeAirQualityData);
     updateData("waterQualityData", fakeWaterQualityData);
     updateData("weatherConditionsData", fakeWeatherConditionsData);
+    updateData("landQualityData", fakeLandQualityData);
 
     // Attach event listeners to the buttons
     document.getElementById("toggleMode").addEventListener("click", toggleMode);
