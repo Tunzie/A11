@@ -1,1 +1,65 @@
-first file.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Monitoring Dashboard</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <div id="app" class="container mx-auto p-4">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Environmental Monitoring Dashboard: Israel, Kiryat Motzkin</h1>
+        </header>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Air Quality Section -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-xl font-semibold text-blue-600 mb-4">Air Quality</h2>
+                <div id="airQualityData" class="text-lg text-gray-700"></div>
+            </div>
+
+            <!-- Water Quality Section -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-xl font-semibold text-green-600 mb-4">Water Quality</h2>
+                <div id="waterQualityData" class="text-lg text-gray-700"></div>
+            </div>
+
+            <!-- Weather Conditions Section -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-xl font-semibold text-orange-600 mb-4">Weather Conditions</h2>
+                <div id="weatherConditionsData" class="text-lg text-gray-700"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Fake Data and JavaScript Logic -->
+    <script>
+        // Fake data for demonstration purposes
+        const fakeAirQualityData = { parameter: "PM2.5", value: 18, unit: "µg/m³" };
+        const fakeWaterQualityData = { parameter: "pH", value: 7.2 };
+        const fakeWeatherConditionsData = { temperature: 25, humidity: 60, windSpeed: 10 };
+
+        // Function to update the displayed data
+        function updateData(elementId, data) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = Object.entries(data).map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`).join('');
+        }
+
+        // Update the data on page load
+        window.onload = function () {
+            updateData("airQualityData", fakeAirQualityData);
+            updateData("waterQualityData", fakeWaterQualityData);
+            updateData("weatherConditionsData", fakeWeatherConditionsData);
+        };
+    </script>
+</body>
+
+</html>
