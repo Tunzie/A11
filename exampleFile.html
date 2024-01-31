@@ -9,6 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Link to Your External CSS File -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add styles for the toggle button */
+        #toggleMode {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
@@ -60,10 +68,12 @@
             <button id="getLocation" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get Location</button>
         </main>
     </div>
-<!-- Footer Section -->
-<footer class="bg-gray-800 text-white text-center py-4">
-    <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
-</footer>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
+    </footer>
+
     <!-- Include Fake Data and JavaScript Logic -->
     <script src="script.js"></script>
 </body>
