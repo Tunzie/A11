@@ -7,6 +7,8 @@
     <title>Environmental Monitoring Dashboard</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Link to Your External CSS File -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-gray-100 font-sans">
@@ -37,28 +39,16 @@
                 <div id="weatherConditionsData" class="text-lg text-gray-700"></div>
             </div>
         </div>
+
+        <!-- Dark Mode / Light Mode Toggle Button -->
+        <button id="toggleMode" class="bg-gray-800 text-white px-4 py-2 rounded focus:outline-none">Toggle Mode</button>
+
+        <!-- Location Button -->
+        <button id="getLocation" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get Location</button>
     </div>
 
     <!-- Include Fake Data and JavaScript Logic -->
-    <script>
-        // Fake data for demonstration purposes
-        const fakeAirQualityData = { parameter: "PM2.5", value: 18, unit: "µg/m³" };
-        const fakeWaterQualityData = { parameter: "pH", value: 7.2 };
-        const fakeWeatherConditionsData = { temperature: 25, humidity: 60, windSpeed: 10 };
-
-        // Function to update the displayed data
-        function updateData(elementId, data) {
-            const element = document.getElementById(elementId);
-            element.innerHTML = Object.entries(data).map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`).join('');
-        }
-
-        // Update the data on page load
-        window.onload = function () {
-            updateData("airQualityData", fakeAirQualityData);
-            updateData("waterQualityData", fakeWaterQualityData);
-            updateData("weatherConditionsData", fakeWeatherConditionsData);
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
