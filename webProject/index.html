@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Environmental Monitoring Dashboard</title>
@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Link to Your External CSS File -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SYF1T9SdAP+2j50R+Tw1Pq8FbXBS1M5X2F4eM" crossorigin="anonymous">
+
     <style>
         /* Add styles for the toggle button and location button */
         #toggleMode {
@@ -34,12 +36,14 @@
   <div id="app" class="flex h-screen">
       <!-- Left Sidebar / Menu -->
       <aside class="w-1/6 bg-gray-200 p-4">
+          <h2 class="text-2xl font-bold mb-4">Dashboard Menu</h2>
           <ul>
-              <li><a href="#" class="block py-2">Home</a></li>
-              <li><a href="#" class="block py-2">Air Quality</a></li>
-              <li><a href="#" class="block py-2">Water Quality</a></li>
-              <li><a href="#" class="block py-2">Weather Conditions</a></li>
-              <li><a href="#" class="block py-2">Settings</a></li>
+              <li><a href="#" class="flex items-center py-2"><i class="fas fa-home mr-2"></i>Home</a></li>
+              <li><a href="#" class="flex items-center py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
+              <li><a href="#" class="flex items-center py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a></li>
+              <li><a href="#" class="flex items-center py-2"><i class="fas fa-cloud mr-2"></i>Weather Conditions</a></li>
+              <li><a href="#" class="flex items-center py-2"><i class="fas fa-leaf mr-2"></i>Land Quality</a></li>
+              <li><a href="#" class="flex items-center py-2"><i class="fas fa-cog mr-2"></i>Settings</a></li>
           </ul>
       </aside>
 
@@ -51,7 +55,7 @@
           </header>
 
           <!-- Main Content Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <!-- Air Quality Section -->
               <div class="bg-white p-4 rounded shadow">
                   <h2 class="text-xl font-semibold text-blue-600 mb-4">Air Quality</h2>
@@ -69,12 +73,12 @@
                   <h2 class="text-xl font-semibold text-orange-600 mb-4">Weather Conditions</h2>
                   <div id="weatherConditionsData" class="text-lg text-gray-700"></div>
               </div>
-            <!-- Land Quality Section -->
+
+              <!-- Land Quality Section -->
               <div class="bg-white p-4 rounded shadow">
                   <h2 class="text-xl font-semibold text-brown-600 mb-4">Land Quality</h2>
                   <div id="landQualityData" class="text-lg text-gray-700"></div>
               </div>
-
           </div>
 
           <!-- Dark Mode / Light Mode Toggle Button -->
@@ -92,5 +96,9 @@
 
   <!-- Include Fake Data and JavaScript Logic -->
   <script src="script.js"></script>
+  <script src="airQualityModule.js"></script>
+  <script src="waterQualityModule.js"></script>
+  <script src="weatherConditionsModule.js"></script>
+  <script src="landQualityModule.js"></script>
 </body>
 </html>
