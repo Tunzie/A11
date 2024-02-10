@@ -33,72 +33,67 @@
 
 <body class="bg-gray-100 font-sans">
 
-  <div id="app" class="flex h-screen">
-      <!-- Left Sidebar / Menu -->
-      <aside class="w-1/6 bg-gray-200 p-4">
-          <h2 class="text-2xl font-bold mb-4">Dashboard Menu</h2>
-          <ul>
-              <li><a href="#" class="flex items-center py-2"><i class="fas fa-home mr-2"></i>Home</a></li>
-              <li><a href="#" class="flex items-center py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
-              <li><a href="#" class="flex items-center py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a></li>
-              <li><a href="#" class="flex items-center py-2"><i class="fas fa-cloud mr-2"></i>Weather Conditions</a></li>
-              <li><a href="#" class="flex items-center py-2"><i class="fas fa-leaf mr-2"></i>Land Quality</a></li>
-              <li><a href="#" class="flex items-center py-2"><i class="fas fa-cog mr-2"></i>Settings</a></li>
-          </ul>
-      </aside>
-
-      <!-- Main Content -->
-      <main class="flex-1 p-4">
-          <!-- Header -->
-          <header class="mb-8">
-              <h1 class="text-3xl font-bold text-gray-800">Environmental Monitoring Dashboard</h1>
-          </header>
-
-          <!-- Main Content Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <!-- Air Quality Section -->
-              <div class="bg-white p-4 rounded shadow">
-                  <h2 class="text-xl font-semibold text-blue-600 mb-4">Air Quality</h2>
-                  <div id="airQualityData" class="text-lg text-gray-700"></div>
-              </div>
-
-              <!-- Water Quality Section -->
-              <div class="bg-white p-4 rounded shadow">
-                  <h2 class="text-xl font-semibold text-green-600 mb-4">Water Quality</h2>
-                  <div id="waterQualityData" class="text-lg text-gray-700"></div>
-              </div>
-
-              <!-- Weather Conditions Section -->
-              <div class="bg-white p-4 rounded shadow">
-                  <h2 class="text-xl font-semibold text-orange-600 mb-4">Weather Conditions</h2>
-                  <div id="weatherConditionsData" class="text-lg text-gray-700"></div>
-              </div>
-
-              <!-- Land Quality Section -->
-              <div class="bg-white p-4 rounded shadow">
-                  <h2 class="text-xl font-semibold text-brown-600 mb-4">Land Quality</h2>
-                  <div id="landQualityData" class="text-lg text-gray-700"></div>
-              </div>
-          </div>
-
-          <!-- Dark Mode / Light Mode Toggle Button -->
-          <button id="toggleMode" class="bg-gray-800 text-white px-4 py-2 rounded focus:outline-none">Toggle Mode</button>
-
-          <!-- Location Button -->
-          <button id="getLocation" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get Location</button>
-      </main>
-  </div>
-
-  <!-- Footer Section -->
-  <footer class="bg-gray-800 text-white text-center py-4">
-      <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
-  </footer>
-
+    <div id="app" class="flex h-screen">
+        <!-- Left Sidebar / Menu -->
+        <aside class="w-1/6 bg-gray-200 p-4">
+            <h2 class="text-2xl font-bold mb-4">Dashboard Menu</h2>
+            <ul>
+                <li><a href="#" class="block py-2">Home</a></li>
+                <li><a href="#" class="block py-2">Air Quality</a></li>
+                <li><a href="#" class="block py-2">Water Quality</a></li>
+                <li><a href="#" class="block py-2">Weather Conditions</a></li>
+                <li><a href="#" class="block py-2">Settings</a></li>
+            </ul>
+        </aside>
+  
+        <!-- Main Content -->
+        <main class="flex-1 p-4">
+            <!-- Header -->
+            <header class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">Environmental Monitoring Dashboard</h1>
+            </header>
+  
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Air Quality Section -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-4">Air Quality</h2>
+                    <div id="airQualityData" class="text-lg text-gray-700"></div>
+                </div>
+  
+                <!-- Water Quality Section -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold text-green-600 mb-4">Water Quality</h2>
+                    <div id="waterQualityData" class="text-lg text-gray-700"></div>
+                </div>
+  
+                <!-- Weather Conditions Section -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold text-orange-600 mb-4">Weather Conditions</h2>
+                    <div id="weatherConditionsData" class="text-lg text-gray-700"></div>
+                </div>
+  
+                <!-- Land Quality Section -->
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="text-xl font-semibold text-brown-600 mb-4">Land Quality</h2>
+                    <div id="landQualityData" class="text-lg text-gray-700"></div>
+                </div>
+            </div>
+  
+            <!-- Dark Mode / Light Mode Toggle Button -->
+            <button id="toggleMode" class="bg-gray-800 text-white px-4 py-2 rounded focus:outline-none">Toggle Mode</button>
+  
+            <!-- Location Button -->
+            <button id="getLocation" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get Location</button>
+        </main>
+    </div>
+  
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
+    </footer>
+  
   <!-- Include Fake Data and JavaScript Logic -->
-  <script src="script.js"></script>
-  <script src="airQualityModule.js"></script>
-  <script src="waterQualityModule.js"></script>
-  <script src="weatherConditionsModule.js"></script>
-  <script src="landQualityModule.js"></script>
-</body>
+  <script src="main.js"></script>
+  </body>
 </html>
