@@ -7,6 +7,8 @@
     <title>Environmental Monitoring Dashboard</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Link to Your External CSS File -->
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -26,6 +28,38 @@
             cursor: pointer;
             margin-bottom: 10px;
         }
+
+        #sideMenu {
+            width: 15%;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        #sideMenu h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        #sideMenu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #sideMenu a {
+            display: block;
+            padding: 1rem 0;
+            text-decoration: none;
+            color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        #sideMenu a:hover {
+            background-color: #4a4a4a;
+        }
+
     </style>
 </head>
 
@@ -33,13 +67,16 @@
 
     <div id="app" class="flex h-screen">
         <!-- Left Sidebar / Menu -->
-        <aside class="w-1/6 bg-gray-200 p-4">
+        <aside id="sideMenu" class="relative">
+            <h2 class="text-xl font-bold mb-4">Menu</h2>
             <ul>
-                <li><a href="#" class="block py-2">Home</a></li>
-                <li><a href="#" class="block py-2">Air Quality</a></li>
-                <li><a href="#" class="block py-2">Water Quality</a></li>
-                <li><a href="#" class="block py-2">Weather Conditions</a></li>
-                <li><a href="#" class="block py-2">Settings</a></li>
+                <!-- Side Menu Options -->
+                <li><a href="air_quality.html" class="block py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
+                <li><a href="water_quality.html" class="block py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a></li>
+                <li><a href="weather_conditions.html" class="block py-2"><i class="fas fa-cloud-sun mr-2"></i>Weather Conditions</a></li>
+                <li><a href="land_quality.html" class="block py-2"><i class="fas fa-mountain mr-2"></i>Land Quality</a></li>
+                <li><a href="settings.html" class="block py-2"><i class="fas fa-cogs mr-2"></i>Settings</a></li>
+                <li><a href="alerts.html" class="block py-2"><i class="fas fa-bell mr-2"></i>Alerts</a></li>
             </ul>
         </aside>
 
@@ -53,28 +90,28 @@
             <!-- Main Content Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Air Quality Section -->
-                <div class="bg-white p-4 rounded shadow">
+                <div id="airQualitySection" class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-semibold text-blue-600 mb-4">Air Quality</h2>
                     <div id="airQualityData" class="text-lg text-gray-700"></div>
                 </div>
 
                 <!-- Water Quality Section -->
-                <div class="bg-white p-4 rounded shadow">
+                <div id="waterQualitySection" class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-semibold text-green-600 mb-4">Water Quality</h2>
                     <div id="waterQualityData" class="text-lg text-gray-700"></div>
                 </div>
 
                 <!-- Weather Conditions Section -->
-                <div class="bg-white p-4 rounded shadow">
+                <div id="weatherConditionsSection" class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-semibold text-orange-600 mb-4">Weather Conditions</h2>
                     <div id="weatherConditionsData" class="text-lg text-gray-700"></div>
                 </div>
-              <!-- Land Quality Section -->
-                <div class="bg-white p-4 rounded shadow">
+
+                <!-- Land Quality Section -->
+                <div id="landQualitySection" class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-semibold text-brown-600 mb-4">Land Quality</h2>
                     <div id="landQualityData" class="text-lg text-gray-700"></div>
                 </div>
-
             </div>
 
             <!-- Dark Mode / Light Mode Toggle Button -->
@@ -90,7 +127,7 @@
         <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
     </footer>
 
-    <!-- Include Fake Data and JavaScript Logic -->
+    <!-- Include JavaScript -->
     <script src="script.js"></script>
 </body>
 
