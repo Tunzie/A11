@@ -15,7 +15,7 @@
 
 <body class="bg-gray-100 font-sans">
     <!-- Accessibility Button -->
-    <button id="accessibilityButton" aria-label="Accessibility Options" style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
+    <button id="accessibilityButton" aria-label="Accessibility Options" style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;">
         <i class="fas fa-wheelchair"></i>
     </button>
 
@@ -38,7 +38,7 @@
         <!-- Main Content -->
         <main class="flex-1 p-4">
             <!-- Header -->
-            <header class="mb-8">
+            <header class="mb-8 border-gray-600">
                 <h1 class="text-3xl font-bold text-gray-800">Environmental Monitoring Dashboard</h1>
             </header>
                 <!-- Dropdown Menu for Choose Data Location -->
@@ -55,8 +55,10 @@
                 </div>
                 
             <!-- Main Content Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-               <!-- Air Quality Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+
+ <!-- Air Quality Section -->
 <div id="airQualitySection" class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between">
     <div>
         <h2 class="text-2xl font-semibold text-blue-600 mb-4">Air Quality</h2>
@@ -157,8 +159,8 @@
     </div>
 
     <!-- Footer Section -->
-   <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto px-4">
+   <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-5">
         <div class="flex flex-wrap items-center">
             <div class="w-full md:w-1/4 text-center md:text-left">
                 <h2 class="text-lg font-bold mb-2">Company</h2>
@@ -179,26 +181,30 @@
             <div class="w-full md:w-1/4 text-center md:text-left">
                 <h2 class="text-lg font-bold mb-2">Follow Us</h2>
                 <ul class="list-unstyled mb-4">
-                    <li></li><li href="https://Facebook.com/EnvDashboard" target="_blank" class="underline">
-                        <i class="fab fa-facebook"></i> Facebook </li>
-                    <li></li><li href="https://twitter.com/EnvDashboard" target="_blank" class="underline">
-                        <i class="fab fa-twitter"></i> Twitter </li>
-                    <li></li><li href="https://Facebook.com/EnvDashboard" target="_blank" class="underline">
-                        <i class="fab fa-instagram"></i> Instagram </li>
+                    <li><a href="https://Facebook.com/EnvDashboard" target="_blank" class="underline hover:text-gray-200">
+                        <i class="fab fa-facebook"></i> Facebook </a></li>
+                    <li><a href="https://twitter.com/EnvDashboard" target="_blank" class="underline hover:text-gray-200">
+                        <i class="fab fa-twitter"></i> Twitter </a></li>
+                    <li><a href="https://Facebook.com/EnvDashboard" target="_blank" class="underline hover:text-gray-200">
+                        <i class="fab fa-instagram"></i> Instagram </a></li>
                 </ul>
             </div>
             <div class="w-full md:w-1/4 text-center">
                 <h2 class="text-lg font-bold mb-2">Subscribe</h2>
                 <p class="mb-4">Sign up for our newsletter to get the latest updates and offers.</p>
                 <form>
-                    <input type="email" placeholder="Email Address" class="bg-gray-700 text-white py-2 px-4 rounded-lg mb-2 w-full">
+                    <input type="email" placeholder="Email Address" class="bg-gray-700 text-white py-2 px-8 rounded-lg mb-3">
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Subscribe</button>
                 </form>
             </div>
         </div>
     </div>
-    <div class="border-t border-gray-600 py-4 text-center">
-        <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
+    <div class="w-full text-center flex justify-center items-center border-t border-gray-600 py-4">
+        <p class="flex-grow">&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
+        <div class="flex px-5">
+            <a href="/terms-of-use" class="text-white hover:text-gray-200">Terms of Use</a>
+            <a href="/privacy-policy" class="text-white mx-22 px-40 hover:text-gray-200 ml-4">Privacy Policy</a>
+        </div>
     </div>
 </footer>
 
