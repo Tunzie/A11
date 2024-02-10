@@ -64,6 +64,11 @@
 </head>
 
 <body class="bg-gray-100 font-sans">
+    <!-- Accessibility Button -->
+    <button id="accessibilityButton" aria-label="Accessibility Options" style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
+        <i class="fas fa-wheelchair"></i>
+    </button>
+
 
     <div id="app" class="flex h-screen">
         <!-- Left Sidebar / Menu -->
@@ -86,7 +91,16 @@
             <header class="mb-8">
                 <h1 class="text-3xl font-bold text-gray-800">Environmental Monitoring Dashboard</h1>
             </header>
-
+                <!-- Dropdown Menu for Choose Data Location -->
+                <div class="mb-4">
+                    <label for="dataLocation" class="block text-lg font-semibold mb-2">Choose Data Location:</label>
+                    <select id="dataLocation" class="bg-white border border-gray-300 rounded px-3 py-2">
+                        <option value="airQuality">Karmiel</option>
+                        <option value="waterQuality">Haifa</option>
+                        <option value="weatherConditions">Tel-Aviv</option>
+                        <option value="landQuality">Eilat</option>
+                    </select>
+                </div>
             <!-- Main Content Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Air Quality Section -->
