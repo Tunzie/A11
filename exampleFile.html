@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Environmental Monitoring Dashboard</title>
+    <!-- Include Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Include Font Awesome -->
@@ -195,19 +197,143 @@
     </div>
 </div>
 
-
+  
             <!-- Dark Mode / Light Mode Toggle Button -->
             <button id="toggleMode" class="bg-gray-800 text-white px-4 py-2 rounded focus:outline-none">Toggle Mode</button>
 
             <!-- Location Button -->
             <button id="getLocation" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get Location</button>
         </main>
+        <!-- Chart Section -->
+<!-- Chart Section -->
+<div id="chartContainer" class="chart-container flex justify-center items-center border border-gray-300 p-4">
+    <canvas id="myChart" width="500" height="300"></canvas>
+</div>  
+    <script>
+        // Mock data for the chart
+        const labels = ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04', '2023-01-05', '2023-01-06', '2023-01-07', '2023-01-08', '2023-01-09', '2023-01-10', '2023-01-11', '2023-01-12', '2023-01-13', '2023-01-14', '2023-01-15', '2023-01-16', '2023-01-17', '2023-01-18', '2023-01-19', '2023-01-20', '2023-01-21', '2023-01-22', '2023-01-23', '2023-01-24', '2023-01-25', '2023-01-26', '2023-01-27', '2023-01-28', '2023-01-29', '2023-01-30', '2023-01-31'];
+        const airQualityData = [65, 59, 80, 81, 56, 55, 67, 70, 72, 68, 66, 69, 71, 75, 76, 73, 68, 65, 62, 60, 61, 64, 63, 61, 58, 59, 62, 64, 66, 68, 70];
+        const landQualityData = [35, 45, 60, 70, 75, 80, 78, 75, 72, 70, 68, 70, 71, 73, 75, 77, 78, 76, 74, 72, 70, 69, 67, 65, 64, 63, 62, 60, 58, 57, 56];
+        const waterQualityData = [40, 50, 65, 70, 80, 85, 82, 79, 76, 75, 73, 72, 70, 68, 66, 64, 63, 61, 60, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47];
+        const weatherData = [20, 30, 40, 50, 60, 70, 72, 75, 77, 80, 78, 76, 74, 72, 70, 68, 66, 64, 62, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49];
+    
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Air Quality',
+                    backgroundColor: 'rgb(54, 162, 235)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    data: airQualityData,
+                    fill: false,
+                },
+                {
+                    label: 'Land Quality',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: landQualityData,
+                    fill: false,
+                },
+                {
+                    label: 'Water Quality',
+                    backgroundColor: 'rgb(75, 192, 192)',
+                    borderColor: 'rgb(75, 192, 192)',
+                    data: waterQualityData,
+                    fill: false,
+                },
+                {
+                    label: 'Weather Conditions',
+                    backgroundColor: 'rgb(153, 102, 255)',
+                    borderColor: 'rgb(153, 102, 255)',
+                    data: weatherData,
+                    fill: false,
+                }
+            ]
+        };
+    
+        // Configuration options for the chart
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Value'
+                        }
+                    }
+                }
+            },
+        };
+    
+        // Create the chart
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+</div>
+
     </div>
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-800 text-white text-center py-4">
+
+
+  
+
+   <!-- Footer Section -->
+   <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center">
+            <div class="w-full md:w-1/4 text-center md:text-left">
+                <h2 class="text-lg font-bold mb-2">Company</h2>
+                <p class="mb-4">
+                    123 Main St.<br>
+                    Anytown, USA
+                </p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="w-full md:w-1/4 text-center md:text-left">
+                <h2 class="text-lg font-bold mb-2">Links</h2>
+                <ul class="list-unstyled mb-4">
+                    <li><a href="#" class="text-gray-400 hover:text-gray-200">Link 1</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-200">Link 2</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-gray-200">Link 3</a></li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/4 text-center md:text-left">
+                <h2 class="text-lg font-bold mb-2">Follow Us</h2>
+                <ul class="list-unstyled mb-4">
+                    <li></li><li href="https://Facebook.com/EnvDashboard" target="_blank" class="underline">
+                        <i class="fab fa-facebook"></i> Facebook </li>
+                    <li></li><li href="https://twitter.com/EnvDashboard" target="_blank" class="underline">
+                        <i class="fab fa-twitter"></i> Twitter </li>
+                    <li></li><li href="https://Facebook.com/EnvDashboard" target="_blank" class="underline">
+                        <i class="fab fa-instagram"></i> Instagram </li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/4 text-center">
+                <h2 class="text-lg font-bold mb-2">Subscribe</h2>
+                <p class="mb-4">Sign up for our newsletter to get the latest updates and offers.</p>
+                <form>
+                    <input type="email" placeholder="Email Address" class="bg-gray-700 text-white py-2 px-4 rounded-lg mb-2 w-full">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-600 py-4 text-center">
         <p>&copy; 2024 Environmental Monitoring Dashboard. All rights reserved.</p>
-    </footer>
+    </div>
+</footer>
 
     <!-- Include JavaScript -->
     <script src="script.js"></script>
