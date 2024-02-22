@@ -5,8 +5,32 @@
 /* Dark Mode Styles */
 .dark {
     background-color: #1a202c;
-    color: #cbd5e0;
+    color: #00a2ff;
 }
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+    color: #00a2ff;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #1a202c;
+    color: #00a2ff;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: #00a2ff;
+}
+
 /* Add styles for the toggle button and location button */
 #toggleMode {
     position: fixed;

@@ -84,26 +84,66 @@ function toggleSettingsModal() {
     modal.classList.toggle('hidden');
 }
 
-// Function to toggle Accessibility
+// JavaScript functions for toggling settings
+
+// Toggle Accessibility
 function toggleAccessibility() {
-    // Code to handle toggling Accessibility option
-    // For example: You can add your logic here to enable/disable Accessibility features
+    const accessibilityToggle = document.getElementById('accessibilityToggle');
+    if (accessibilityToggle.checked) {
+        // Accessibility is ON
+        // Perform actions when Accessibility is turned ON
+        console.log("Accessibility is ON");
+    } else {
+        // Accessibility is OFF
+        // Perform actions when Accessibility is turned OFF
+        console.log("Accessibility is OFF");
+    }
 }
 
-// Function to toggle Dark Mode
+// Toggle Dark Mode
 function toggleDarkMode() {
-    // Code to handle toggling Dark Mode
-    // For example: You can add your logic here to switch between dark and light mode
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    if (darkModeToggle.checked) {
+        // Dark Mode is ON
+        // Apply dark mode styles
+        body.classList.add('dark-mode');
+        console.log("Dark Mode is ON");
+    } else {
+        // Dark Mode is OFF
+        // Remove dark mode styles
+        body.classList.remove('dark-mode');
+        console.log("Dark Mode is OFF");
+    }
 }
-
-// Function to toggle Notifications
+// Toggle Notifications
 function toggleNotifications() {
-    // Code to handle toggling Notifications
-    // For example: You can add your logic here to enable/disable Notifications
+    const notificationsToggle = document.getElementById('notificationsToggle');
+    if (notificationsToggle.checked) {
+        // Notifications are ON
+        // Perform actions when Notifications are turned ON
+        console.log("Notifications are ON");
+    } else {
+        // Notifications are OFF
+        // Perform actions when Notifications are turned OFF
+        console.log("Notifications are OFF");
+    }
 }
 
-// Function to toggle Alerts
+// Toggle Alerts
 function toggleAlerts() {
-    // Code to handle toggling Alerts
-    // For example: You can add your logic here to show/hide alerts
+    const alertsToggle = document.getElementById('alertsToggle');
+    if (alertsToggle.checked) {
+        // Alerts are ON
+        // Perform actions when Alerts are turned ON
+        console.log("Alerts are ON");
+        // Example: Show the alert div
+        document.getElementById('alert').style.display = 'block';
+    } else {
+        // Alerts are OFF
+        // Perform actions when Alerts are turned OFF
+        console.log("Alerts are OFF");
+        // Example: Hide the alert div
+        document.getElementById('alert').style.display = 'none';
+    }
 }
