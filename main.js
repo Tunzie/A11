@@ -76,3 +76,34 @@ window.onload = function () {
     document.getElementById("toggleMode").addEventListener("click", toggleMode);
     document.getElementById("getLocation").addEventListener("click", getLocation);
 };
+
+
+// Function to toggle the settings modal
+function toggleSettingsModal() {
+    const modal = document.getElementById('settingsModal');
+    modal.classList.toggle('hidden');
+}
+
+// Function to toggle Accessibility
+function toggleAccessibility() {
+    // Code to handle toggling Accessibility option
+    // For example: You can add your logic here to enable/disable Accessibility features
+}
+
+// Function to toggle Dark Mode
+function toggleDarkMode() {
+    // Code to handle toggling Dark Mode
+    // For example: You can add your logic here to switch between dark and light mode
+}
+
+// Function to toggle Notifications
+function toggleNotifications() {
+    // Code to handle toggling Notifications
+    // For example: You can add your logic here to enable/disable Notifications
+}
+
+// Function to toggle Alerts
+function toggleAlerts() {
+    // Code to handle toggling Alerts
+    // For example: You can add your logic here to show/hide alerts
+}
