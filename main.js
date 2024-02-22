@@ -147,3 +147,48 @@ function toggleAlerts() {
         document.getElementById('alert').style.display = 'none';
     }
 }
+
+// Open Accessibility Modal
+function openAccessibilityModal() {
+    const accessibilityModal = document.getElementById('accessibilityModal');
+    accessibilityModal.classList.remove('hidden');
+}
+
+// Close Accessibility Modal
+function closeAccessibilityModal() {
+    const accessibilityModal = document.getElementById('accessibilityModal');
+    accessibilityModal.classList.add('hidden');
+}
+
+// Toggle Large Text
+function toggleLargeText() {
+    const largeTextToggle = document.getElementById('largeTextToggle');
+    const body = document.body;
+    if (largeTextToggle.checked) {
+        body.classList.add('large-text');
+    } else {
+        body.classList.remove('large-text');
+    }
+}
+
+// Toggle High Contrast
+function toggleHighContrast() {
+    const highContrastToggle = document.getElementById('highContrastToggle');
+    const body = document.body;
+    if (highContrastToggle.checked) {
+        body.classList.add('high-contrast');
+    } else {
+        body.classList.remove('high-contrast');
+    }
+}
+
+// Toggle Reduce Motion
+function toggleReduceMotion() {
+    const reduceMotionToggle = document.getElementById('reduceMotionToggle');
+    const body = document.body;
+    if (reduceMotionToggle.checked) {
+        body.classList.add('reduce-motion');
+    } else {
+        body.classList.remove('reduce-motion');
+    }
+}

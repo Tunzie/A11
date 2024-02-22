@@ -13,14 +13,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-gray-100 font-sans">
-    <!-- Accessibility Button -->
-    <button id="accessibilityButton" aria-label="Accessibility Options"
-        style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;">
-        <i class="fas fa-wheelchair"></i>
-    </button>
+
+<!-- Accessibility Button -->
+<button id="accessibilityButton" aria-label="Accessibility Options"
+    style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;"
+    onclick="openAccessibilityModal()">
+    <i class="fas fa-wheelchair"></i>
+</button>
+
+<!-- Accessibility Modal -->
+<div id="accessibilityModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-semibold mb-4">Accessibility Options</h2>
+        <ul>
+            <li class="flex items-center mb-4">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="largeTextToggle" onchange="toggleLargeText()">
+                    <label for="largeTextToggle"></label>
+                </div>
+                <label class="ml-2">Large Text</label>
+            </li>
+            <li class="flex items-center mb-4">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="highContrastToggle" onchange="toggleHighContrast()">
+                    <label for="highContrastToggle"></label>
+                </div>
+                <label class="ml-2">High Contrast</label>
+            </li>
+            <li class="flex items-center">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion()">
+                    <label for="reduceMotionToggle"></label>
+                </div>
+                <label class="ml-2">Reduce Motion</label>
+            </li>
+        </ul>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="closeAccessibilityModal()">Close</button>
+    </div>
+</div>
 
 
+
+    
     <div id="app" class="flex h-screen">
         <!-- Left Sidebar / Menu -->
         <aside id="sideMenu" class="relative">
@@ -97,7 +131,7 @@
                 </div>
 
                 <!-- Water Quality Section -->
-                <div id="waterQualitySection" class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between">
+                <div id="waterQualitySection" class="bg-white pa-6 rounded-lg shadow-lg flex flex-col justify-between">
                     <div>
                         <h2 class="text-2xl font-semibold text-green-600 mb-4">Water Quality</h2>
                         <div class="flex justify-center items-center mb-6">

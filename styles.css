@@ -150,3 +150,22 @@
 #settingsModal.hidden {
     display: none;
 }
+
+
+/* Styles for Large Text */
+.large-text {
+    font-size: 20px; /* Adjust as needed */
+}
+
+/* Styles for High Contrast */
+.high-contrast {
+    /* Example high contrast styles, modify as needed */
+    filter: invert(100%);
+}
+
+/* Styles for Reduced Motion */
+.reduce-motion {
+    /* Example reduced motion styles, modify as needed */
+    transition: none;
+    animation: none;
+}
