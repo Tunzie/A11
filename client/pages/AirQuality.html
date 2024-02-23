@@ -101,6 +101,81 @@
             <canvas id="line-chart3" width="400" height="200"></canvas>
           </div> 
     </div>
+<!-- Settings Icon -->
+<button id="settingsButton" aria-label="Settings" onclick="toggleSettingsModal()"
+style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
+<i class="fas fa-cog"></i>
+</button>
+
+<!-- Settings Modal -->
+<div id="settingsModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">Settings</h2>
+    <ul>
+
+        <li class="flex items-center mb-4">
+            <div class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                <label for="darkModeToggle"></label>
+            </div>
+            <label class="ml-2">Dark Mode</label>                                
+        </li>
+        <li class="flex items-center mb-4">
+            <div class="toggle-switch">
+                <input type="checkbox" id="notificationsToggle" onchange="toggleNotifications()" checked>
+                <label for="notificationsToggle"></label>
+            </div>
+            <label class="ml-2">Notifications</label>
+        </li>
+        <li class="flex items-center">
+            <div class="toggle-switch">
+                <input type="checkbox" id="alertsToggle" onchange="toggleAlerts()" checked>
+                <label for="alertsToggle"></label>
+            </div>
+            <label class="ml-2">Alerts</label>
+        </li>
+    </ul>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="toggleSettingsModal()">Close</button>
+</div>
+</div>
+
+<!-- Accessibility Button -->
+<button id="accessibilityButton" aria-label="Accessibility Options"
+style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;"
+onclick="openAccessibilityModal()">
+<i class="fas fa-wheelchair"></i>
+</button>
+
+<!-- Accessibility Modal -->
+<div id="accessibilityModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
+<div class="bg-white p-6 rounded-lg shadow-lg">
+<h2 class="text-2xl font-semibold mb-4">Accessibility Options</h2>
+<ul>
+<li class="flex items-center mb-4">
+<div class="toggle-switch">
+<input type="checkbox" id="largeTextToggle" onchange="toggleLargeText()">
+<label for="largeTextToggle"></label>
+</div>
+<label class="ml-2">Large Text</label>
+</li>
+<li class="flex items-center mb-4">
+<div class="toggle-switch">
+<input type="checkbox" id="highContrastToggle" onchange="toggleHighContrast()">
+<label for="highContrastToggle"></label>
+</div>
+<label class="ml-2">High Contrast</label>
+</li>
+<li class="flex items-center">
+<div class="toggle-switch">
+<input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion()">
+<label for="reduceMotionToggle"></label>
+</div>
+<label class="ml-2">Reduce Motion</label>
+</li>
+</ul>
+<button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="closeAccessibilityModal()">Close</button>
+</div>
+</div>
 
     <!-- Include jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
