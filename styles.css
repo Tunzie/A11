@@ -169,3 +169,10 @@
     transition: none;
     animation: none;
 }
+
+.chart-container {
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
+    margin-left: auto; /* Adjust left margin */
+    margin-right: auto; /* Adjust right margin */
+}

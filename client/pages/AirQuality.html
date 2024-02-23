@@ -17,47 +17,14 @@
     />
     <!-- Link to Your External CSS File -->
     <link rel="stylesheet" href="AirQuality_Style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="AirQuality.js"></script>
   </head>
-  <style>
-    body,
-    html {
-      height: 100%;
-      margin: 0;
-    }
-  
-    #app {
-      display: flex;
-      justify-content: center; /* Horizontally center */
-      align-items: center; /* Vertically center */
-      height: 100%;
-    }
-  
-    .window {
-      display: flex;
-      justify-content: center; /* Horizontally center */
-      align-items: center; /* Vertically center */
-      flex-direction: column;
-      max-width: 50%;
-      transition: transform 0.3s ease; /* Add transition */
-    }
-  
-    .window:hover {
-      transform: scale(1.1); /* Scale image up by 10% */
-    }
-    
-  
-    canvas {
-      max-width: 100%;
-      height: auto;
-    }
-    h1{
-        font-size: xx-large;
-    }
-  </style>
-  
+
   <body>
-     <!-- Left Sidebar / Menu -->
-     <aside id="sideMenu" class="relative">
+    <!-- Left Sidebar / Menu -->
+    <aside id="sideMenu" class="relative">
       <h2 class="text-xl font-bold mb-4">Menu</h2>
       <ul>
           <!-- Side Menu Options -->
@@ -83,24 +50,33 @@
           
           </li>
 
-          
-
       </ul>
-  </aside>
+    </aside>
     <div id="app">
-        <div class="window">
-            <h1>Partical Pollution</h1>
-            <canvas id="line-chart1" width="400" height="200"></canvas>
-          </div>
-          <div class="window">
-            <h1>O&#8323;</h1>
-            <canvas id="line-chart2" width="400" height="200"></canvas>
-          </div>
-          <div class="window">
-            <h1>PM&#8321;&#8320;</h1>
-            <canvas id="line-chart3" width="400" height="200"></canvas>
-          </div> 
+      <div class="bigwindow">
+        <div class="filterbar">
+          <button id="button1" onclick="filterSelected('button1')">H</button>
+          <button id="button2" onclick="filterSelected('button2')">D</button>
+          <button id="button3" onclick="filterSelected('button3')">M</button>
+          <button id="button4" onclick="filterSelected('button4')">Y</button>
+        </div>
+        <h1>Air Quality Score</h1>
+        <canvas id="line-chart4" width="500" height="300"></canvas>
+      </div>
+      <div class="window">
+        <h1>Partical Pollution</h1>
+        <canvas id="line-chart1" width="400" height="200"></canvas>
+      </div>
+      <div class="window">
+        <h1>O&#8323;</h1>
+        <canvas id="line-chart2" width="400" height="200"></canvas>
+      </div>
+      <div class="window">
+        <h1>PM&#8321;&#8320;</h1>
+        <canvas id="line-chart3" width="400" height="200"></canvas>
+      </div>
     </div>
+<<<<<<< Updated upstream
 <!-- Settings Icon -->
 <button id="settingsButton" aria-label="Settings" onclick="toggleSettingsModal()"
 style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
@@ -267,8 +243,10 @@ onclick="openAccessibilityModal()">
           .catch(error => console.error('Error fetching footer:', error));
       </script>
       
+=======
+>>>>>>> Stashed changes
   </body>
   <footer class="footer-container bg-gray-800 text-white py-6">
     <div id="footer"></div>
-</footer>
+  </footer>
 </html>
