@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Air Quality</title>
+    <link rel="icon" type="image/png" href="Assets/icon.png" />
+    <!-- Include Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Include Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Link to Your External CSS File -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+  
+    #app {
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center; /* Vertically center */
+      height: 100%;
+    }
+  
+    .window {
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center; /* Vertically center */
+      flex-direction: column;
+      max-width: 50%;
+      transition: transform 0.3s ease; /* Add transition */
+    }
+  
+    .window:hover {
+      transform: scale(1.1); /* Scale image up by 10% */
+    }
+    
+  
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    h1{
+        font-size: xx-large;
+    }
+  </style>
+  
+  <body>
+    <div id="app">
+        <div class="window">
+            <h1>Partical Pollution</h1>
+            <canvas id="line-chart1" width="400" height="200"></canvas>
+          </div>
+          <div class="window">
+            <h1>O&#8323;</h1>
+            <canvas id="line-chart2" width="400" height="200"></canvas>
+          </div>
+          <div class="window">
+            <h1>PM&#8321;&#8320;</h1>
+            <canvas id="line-chart3" width="400" height="200"></canvas>
+          </div> 
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+          // Sample data for the line chart
+          var data = {
+            labels: [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July",
+            ],
+            datasets: [
+              {
+                data: [6.5, 5.9, 8.0, 8.1, 5.6, 5.5, 4],
+                fill: false,
+                borderColor: "green",
+                tension: 0.1,
+              },
+            ],
+          };
+      
+          // Configuration options for the chart
+          var options = {
+            scales: {
+              x: {
+                display: true, // Hide x-axis
+              },
+              y: {
+                display: true, // Hide y-axis
+              },
+            },
+            plugins: {
+              legend: {
+                display: false, // Hide legend
+              },
+            },
+            layout: {
+              padding: {
+                top: 10,
+                bottom: 10,
+                left: 10,
+                right: 10,
+              },
+            },
+          };
+      
+          // Get the context of the canvas elements we want to select
+          var ctx1 = document.getElementById("line-chart1").getContext("2d");
+          var ctx2 = document.getElementById("line-chart2").getContext("2d");
+          var ctx3 = document.getElementById("line-chart3").getContext("2d");
+      
+          // Create the line charts
+          var myChart1 = new Chart(ctx1, {
+            type: "line",
+            data: data,
+            options: options,
+          });
+      
+          var myChart2 = new Chart(ctx2, {
+            type: "line",
+            data: data,
+            options: options,
+          });
+          var myChart3 = new Chart(ctx3, {
+            type: "line",
+            data: data,
+            options: options,
+          });
+
+        });
+      </script>
+      
+  </body>
+</html>
