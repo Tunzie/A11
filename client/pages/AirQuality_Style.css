@@ -44,3 +44,54 @@
   height: 100%;
   width: 100%;
 }
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+}
+
+.window {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  flex-direction: column;
+  max-width: 50%;
+  transition: transform 0.3s ease; /* Add transition */
+  padding: 10px;
+}
+.bigwindow {
+  position: absolute;
+  top: 0;
+}
+
+.window:hover {
+  transform: scale(1.1); /* Scale image up by 10% */
+}
+.filterbar {
+  display: flex;
+  padding: 3px;
+  width: 50%;
+  height: 50%;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+h1 {
+  font-size: xx-large;
+}
+button {
+  border-radius: 50px;
+  font-size: x-large;
+  padding: 1px;
+  margin: 2px;
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+}
