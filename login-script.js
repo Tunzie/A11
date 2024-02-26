@@ -24,14 +24,15 @@ function validateLogin(event) {
     if (!emailValue || !passwordValue) return; 
     // Perform validation if email and password are according to the rules.
     if (!isValidEmail(emailValue)) { 
-        displayError('Invalid email address', emailValue);
+        displayError('Invalid email address', emailInput);
         return;
     }
     if (!isValidPassword(passwordInput.value)) { 
-        displayError('Invalid password.', passwordValue);
+        displayError('Invalid password.', passwordInput);
         return;
     }
     // If validation passes, show user input in alert
+    // TODO: send values to backend
     alert('Login successful!\nEmail: ' + emailValue + '\nPassword: ' + passwordValue);   
 }
 // handle sign in form submit event 
@@ -59,10 +60,11 @@ function validateSignin(event){
         return;
     }
     if (!IsPasswordsMatch(passwordValue,confirmPassValue)) { 
-        displayError('Passwords not match.', confirmPassInput);
+        displayError('Passwords do not match.', confirmPassInput);
         return;
     }
-    // If validation passes, show user input in alert
+    // If validation passes, show user iput in alert
+    //TODO: send values to backend.
     alert('Sign in successful!\nFull Name: '+ nameValue + '\nEmail: ' + emailValue + '\nPassword: ' + passwordValue);
 }
 // Display error message to user
