@@ -1,16 +1,6 @@
 
 let errorDisplayed = false; // Variable to track if error is already displayed
 
-
-function displaySignUp(){
-    var loginWrapper = document.getElementById("loginWrapper");
-    var signUpWrapper = document.getElementById("signUpWrapper");
-    if (loginWrapper) {
-            loginWrapper.style.display = "none";
-            signUpWrapper.style.display = "block";
-    }
-}
-
 // handle login form submit event 
 function validateLogin(event) {
     // Prevent the default form submission behavior
