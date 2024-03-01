@@ -13,11 +13,6 @@ function updateData(elementId, data) {
 // Add dark mode / light mode functionality
 let isDarkMode = false;
 
-function toggleMode() {
-    const body = document.body;
-    isDarkMode = !isDarkMode;
-    body.classList.toggle('dark', isDarkMode);
-}
 
 // Add location fetching functionality
 function getLocation() {
@@ -64,7 +59,9 @@ function showError(error) {
             break;
     }
 }
-
+function loginButton() {
+    window.location.href='../src/components/Login/login.html';
+}
 // Update the data on page load
 window.onload = function () {
     updateData("airQualityData", fakeAirQualityData);
@@ -73,16 +70,8 @@ window.onload = function () {
     updateData("landQualityData", fakeLandQualityData);
 
     // Attach event listeners to the buttons
-    document.getElementById("toggleMode").addEventListener("click", toggleMode);
     document.getElementById("getLocation").addEventListener("click", getLocation);
 };
-
-
-// Function to toggle the settings modal
-function toggleSettingsModal() {
-    const modal = document.getElementById('settingsModal');
-    modal.classList.toggle('hidden');
-}
 
 // JavaScript functions for toggling settings
 

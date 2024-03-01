@@ -32,7 +32,7 @@
 }
 
 /* Add styles for the toggle button and location button */
-#toggleMode {
+#loginButton {
     position: fixed;
     top: 10px;
     right: 10px;
