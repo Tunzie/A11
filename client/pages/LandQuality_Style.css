@@ -44,3 +44,93 @@
   height: 100%;
   width: 100%;
 }
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+}
+
+.main-content {
+  width: 85%;
+}
+
+.window {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Adjust window sizes */
+.map-window {
+  width: 100%;
+}
+
+.status-elevation-window {
+  width: 100%;
+}
+
+.charts-window {
+  width: 100%;
+}
+
+/* Adjust chart container dimensions */
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  width: 100%;
+}
+
+/* Adjust chart dimensions */
+.chart-container canvas {
+  max-width: calc(50% - 20px); /* Adjust maximum width to fit two charts with spacing */
+  height: auto;
+  margin-bottom: 20px; /* Add spacing between charts */
+}
+
+/* Style for the elevation display */
+#elevation {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Style for the elevation display */
+#status {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  position: relative;
+}
+.chart-label {
+  font-size: 1.4;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: auto;
+}
+
+#alert-container {
+  width: 30%;
+  padding: 5px; /* Add padding inside the alert container */
+  margin: 5px 0; /* Add margin to separate from other elements */
+}
+
+#alert {
+  margin: 0;
+  font-weight: bold; /* Make the alert message bold */
+  font-size: 14px; /* Adjust the font size of the alert message */
+}
+
