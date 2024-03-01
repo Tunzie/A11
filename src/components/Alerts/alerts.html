@@ -150,6 +150,9 @@
 
                         // Append the alert to the alerts container
                         alertsContainer.appendChild(alertDiv);
+
+                        // Check weather conditions and show alert to user
+                        checkWeatherConditions(weatherMessages[currentWeatherCode]);
                     } else {
                         console.error('Weather code not found:', currentWeatherCode);
                     }
@@ -157,6 +160,24 @@
                 .catch(error => {
                     console.error('Error fetching weather data:', error);
                 });
+        }
+
+        // Function to check weather conditions and show alert
+        function checkWeatherConditions(weatherMessage) {
+            // Define weather conditions to show alert
+            const conditionsToShowAlert = [
+                "Rain (Slight)",
+                "Rain (Moderate)",
+                "Rain (Heavy)",
+                "Thunderstorm (Slight)",
+                "Thunderstorm with hail (Slight)",
+                "Thunderstorm with hail (Heavy)"
+            ];
+
+            // Check if the current weather message is in the conditions to show alert
+            if (conditionsToShowAlert.includes(weatherMessage)) {
+                alert("Alert: " + weatherMessage);
+            }
         }
 
         // Initialize Leaflet map
