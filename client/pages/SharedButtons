@@ -1,0 +1,62 @@
+<!-- Settings Icon -->
+<button
+  id="settingsButton"
+  aria-label="Settings"
+  onclick="toggleSettingsModal()"
+  style="position: fixed; bottom: 20px; right: 20px; font-size: 24px"
+>
+  <i class="fas fa-cog"></i>
+</button>
+
+<!-- Settings Modal -->
+<div
+  id="settingsModal"
+  class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden"
+>
+  <div class="bg-white p-6 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">Settings</h2>
+    <ul>
+      <li class="flex items-center mb-4">
+        <div class="toggle-switch">
+          <input
+            type="checkbox"
+            id="darkModeToggle"
+            onchange="toggleDarkMode()"
+          />
+          <label for="darkModeToggle"></label>
+        </div>
+        <label class="ml-2">Dark Mode</label>
+      </li>
+      <li class="flex items-center mb-4">
+        <div class="toggle-switch">
+          <input
+            type="checkbox"
+            id="notificationsToggle"
+            onchange="toggleNotifications()"
+            checked
+          />
+          <label for="notificationsToggle"></label>
+        </div>
+        <label class="ml-2">Notifications</label>
+      </li>
+      <li class="flex items-center">
+        <div class="toggle-switch">
+          <input
+            type="checkbox"
+            id="alertsToggle"
+            onchange="toggleAlerts()"
+            checked
+          />
+          <label for="alertsToggle"></label>
+        </div>
+        <label class="ml-2">Alerts</label>
+      </li>
+    </ul>
+    <button
+      class="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+      onclick="toggleSettingsModal()"
+    >
+      Close
+    </button>
+  </div>
+</div>

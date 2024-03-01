@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#sideMenu {
+  width: 15%;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 20px;
+}
+
+#sideMenu h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#sideMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sideMenu a {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+#sideMenu a:hover {
+  background-color: #4a4a4a;
+}
+
+#alert {
+  background-color: orange;
+  padding: 3px;
+  margin: 2px;
+  gap: 4px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

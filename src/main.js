@@ -23,18 +23,26 @@ function getLocation() {
     }
 }
 
+// Define a module named "locationData" to export latitude, longitude, and address
+const locationData = {
+    latitude: null,
+    longitude: null,
+    address: null
+};
+
 function showPosition(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+    // Update latitude and longitude
+    locationData.latitude = position.coords.latitude;
+    locationData.longitude = position.coords.longitude;
 
     // Use a reverse geocoding service to get the address based on the coordinates
-    const geocodingApiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+    const geocodingApiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${locationData.latitude}&lon=${locationData.longitude}`;
     
     fetch(geocodingApiUrl)
         .then(response => response.json())
         .then(data => {
-            const address = data.display_name || "Location data not available";
-            alert(`Location Data:\nLatitude: ${latitude}\nLongitude: ${longitude}\nAddress: ${address}`);
+            locationData.address = data.display_name || "Location data not available";
+            alert(`Location Data:\nLatitude: ${locationData.latitude}\nLongitude: ${locationData.longitude}\nAddress: ${locationData.address}`);
             // You can use the obtained coordinates and address as needed, for example, update your dashboard with the location data.
         })
         .catch(error => {
@@ -42,6 +50,7 @@ function showPosition(position) {
             alert("Error fetching location data. Please try again later.");
         });
 }
+
 
 function showError(error) {
     switch (error.code) {
@@ -181,3 +190,7 @@ function toggleReduceMotion() {
         body.classList.remove('reduce-motion');
     }
 }
+
+
+// Export the locationData module
+export { locationData };
