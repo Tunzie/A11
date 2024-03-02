@@ -1,40 +1,90 @@
-import { locationData } from '../main.js';
+import { locationData } from '../../main.js';
 
+const european_aqi = {
+  label: 'european_aqi',
+  borderColor: 'orange',
+  fill: false
+};
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Fetch air quality data and create graph
-  fetchAirQualityData(locationData.latitude, locationData.longitude);
+const pm2_5 = {
+  label: 'pm2_5',
+  borderColor: 'red',
+  fill: false
+};
 
-  // Initialize charts
-  initializeCharts();
-});
+const ozone = {
+  label: 'ozone',
+  borderColor: 'green',
+  fill: false
+};
+
+const pm10 = {
+  label: 'pm10',
+  borderColor: 'blue',
+  fill: false
+};
+
+let filter = "H";
+
+function buildUrl(locationData, variable, filter) {
+  let url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${locationData.latitude}&longitude=${locationData.longitude}&timeformat=unixtime`;
+  switch (variable) {
+    case 'AQI':
+      url += `&hourly=european_aqi&timeformat=unixtime`;
+      break;
+    case 'PP':
+      url += `&hourly=pm2_5&timeformat=unixtime`;
+      break;
+    case 'PM10':
+      url += `&hourly=pm10&timeformat=unixtime`;
+      break;
+    case "O3":
+      url += `&hourly=ozone&timeformat=unixtime`;
+      break;
+  }
+
+  switch (filter) {
+    case "H":
+      url += `&past_days=0`;
+      break;
+    case "D":
+      url += `&past_days=7`;
+      break;
+    case "M":
+      url += `&past_days=92`;
+      break;
+  }
+  return url;
+}
+
 
 // Fetch air quality data from the API
-function fetchAirQualityData(latitude, longitude) {
-  const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&current=european_aqi&hourly=european_aqi&timeformat=unixtime`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => createGraph(data))
-    .catch(err => console.log(err));
+async function fetchAirQualityData(url, dataset, elementid, filter) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    createGraph(data, dataset, elementid, filter);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 // Create graph using air quality data
-function createGraph(data) {
+function createGraph(data, dataset, elementid, filter) {
   const hourlyData = data.hourly;
-  const timestamps = hourlyData.time.map(timestamp => new Date(timestamp * 1000));
-  const labels = timestamps.map(date => formatAMPM(date));
-  const europeanAQI = hourlyData.european_aqi;
+  const timestamps = hourlyData.time;
+  const labels = formatTimestamps(timestamps, filter);
 
-  const dataset = {
-    label: 'European AQI',
-    data: europeanAQI,
-    borderColor: 'orange',
-    fill: false
+  const chartDataset = {
+    label: dataset.label,
+    data: hourlyData[dataset.label],
+    borderColor: dataset.borderColor,
+    fill: dataset.fill
   };
 
   const chartData = {
     labels: labels,
-    datasets: [dataset]
+    datasets: [chartDataset]
   };
 
   const options = {
@@ -46,8 +96,33 @@ function createGraph(data) {
     layout: { padding: { top: 10, bottom: 10, left: 10, right: 10 } }
   };
 
-  const ctx = document.getElementById("line-chart4").getContext("2d");
-  const myChart = new Chart(ctx, { type: "line", data: chartData, options: options });
+  const ctx = document.getElementById(elementid).getContext("2d");
+  
+  // Check if a Chart instance already exists
+  if (window.myChart && window.myChart[elementid]) {
+    window.myChart[elementid].destroy(); // Destroy existing Chart instance
+  }
+
+  window.myChart = window.myChart || {}; // Create a global object to store Chart instances
+  window.myChart[elementid] = new Chart(ctx, { type: "line", data: chartData, options: options });
+}
+
+
+// Function to format timestamps based on filter
+function formatTimestamps(timestamps, filter) {
+  if (filter === "H") {
+    return timestamps.map(timestamp => formatAMPM(new Date(timestamp * 1000)));
+  } else if (filter === "D" || filter === "M") {
+    return timestamps.map(timestamp => formatDate(new Date(timestamp * 1000)));
+  }
+}
+
+// Format time in "MM/DD/YYYY"
+function formatDate(date) {
+  const month = date.getMonth() + 1; // Month is zero-based, so we add 1
+  const day = date.getDate();
+  const year = date.getFullYear();
+  return month + '/' + day + '/' + year;
 }
 
 // Format time in "hh:mm am/pm"
@@ -60,64 +135,77 @@ function formatAMPM(date) {
   return hours + ':' + minutes + ' ' + ampm;
 }
 
-// Initialize charts
-function initializeCharts() {
-  const data1 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [{ data: [6.5, 5.9, 8.0, 8.1, 5.6, 5.5, 4], fill: false, borderColor: "green", tension: 0.1 }]
-  };
+function filterSelected(id) {
+  // Remove background color from all buttons
+  document.getElementById("button1").style.backgroundColor = "";
+  document.getElementById("button2").style.backgroundColor = "";
+  document.getElementById("button3").style.backgroundColor = "";
 
-  const data2 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [{ data: [4, 6, 7, 5.5, 6.8, 7.2, 6], fill: false, borderColor: "blue", tension: 0.1 }]
-  };
+  // Set background color to peach for the selected button
+  document.getElementById(id).style.backgroundColor = "peachpuff";
+  switch (id) {
+    case "button1":
+      filter = "H";
+      break;
+    case "button2":
+      filter = "D";
+      break;
+    case "button3":
+      filter = "M";
+      break;
+    default:
+      console.error("Invalid filter button ID");
+      return;
+  }
+  
+  fetchAirQualityData(buildUrl(locationData, "PP", filter), pm2_5, "line-chart1", filter);
+  fetchAirQualityData(buildUrl(locationData, "PM10", filter), pm10, "line-chart2", filter);
+  fetchAirQualityData(buildUrl(locationData, "O3", filter), ozone, "line-chart3", filter);
+  fetchAirQualityData(buildUrl(locationData, "AQI", filter), european_aqi, "line-chart4", filter);
 
-  const data3 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [{ data: [3, 5, 6, 5.2, 4.8, 4.6, 4.2], fill: false, borderColor: "red", tension: 0.1 }]
-  };
-
-  const data4 = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [{ data: [7, 7.5, 8, 8.2, 7.8, 7.2, 7], fill: false, borderColor: "orange", tension: 0.1 }]
-  };
-
-  const options = {
-    scales: { x: { display: true }, y: { display: true } },
-    plugins: { legend: { display: false } },
-    layout: { padding: { top: 10, bottom: 10, left: 10, right: 10 } }
-  };
-
-  const ctx1 = document.getElementById("line-chart1").getContext("2d");
-  const ctx2 = document.getElementById("line-chart2").getContext("2d");
-  const ctx3 = document.getElementById("line-chart3").getContext("2d");
-
-  const myChart1 = new Chart(ctx1, { type: "line", data: data1, options: options });
-  const myChart2 = new Chart(ctx2, { type: "line", data: data2, options: options });
-  const myChart3 = new Chart(ctx3, { type: "line", data: data3, options: options });
 }
 
-function filterSelected(id) {
-  const buttons = document.querySelectorAll('button');
-  buttons.forEach(button => button.style.backgroundColor = button.id === id ? "peachpuff" : "");
-
-  switch (id) {
-    case 'button1':
-      updateCharts(data1, data1, data2, data2);
-      break;
-    case 'button2':
-      updateCharts(data3, data3, data4, data4);
-      break;
-    // Add cases for additional buttons if needed
+// Toggle Accessibility
+function toggleAccessibility() {
+  const accessibilityToggle = document.getElementById('accessibilityButton');
+  if (accessibilityToggle.checked) {
+      // Accessibility is ON
+      // Perform actions when Accessibility is turned ON
+      console.log("Accessibility is ON");
+  } else {
+      // Accessibility is OFF
+      // Perform actions when Accessibility is turned OFF
+      console.log("Accessibility is OFF");
   }
 }
 
-// Update chart data based on the selected dataset
-function updateCharts(chartData1, chartData2, chartData3, chartData4) {
-  myChart1.data = chartData1;
-  myChart1.update();
-  myChart2.data = chartData2;
-  myChart2.update();
-  myChart3.data = chartData3;
-  myChart3.update();
-}
+document.addEventListener("DOMContentLoaded", function () {
+  // Set location data
+  locationData.latitude = 32.0045;
+  locationData.longitude = 34.78;
+  document.getElementById("button1").style.backgroundColor = "peachpuff";
+
+  // Fetch air quality data for initial load
+  fetchAirQualityData(buildUrl(locationData, "PP", filter), pm2_5, "line-chart1", filter);
+  fetchAirQualityData(buildUrl(locationData, "PM10", filter), pm10, "line-chart2", filter);
+  fetchAirQualityData(buildUrl(locationData, "O3", filter), ozone, "line-chart3", filter);
+  fetchAirQualityData(buildUrl(locationData, "AQI", filter), european_aqi, "line-chart4", filter);
+
+  // Add event listeners to filter buttons
+  document.getElementById("button1").addEventListener("click", function () {
+    filterSelected("button1");
+  });
+
+  document.getElementById("button2").addEventListener("click", function () {
+    filterSelected("button2");
+  });
+
+  document.getElementById("button3").addEventListener("click", function () {
+    filterSelected("button3");
+  });
+
+  document.getElementById("button4").addEventListener("click", function () {
+    filterSelected("button4");
+  });
+});
+
