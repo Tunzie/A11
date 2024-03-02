@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scales: {
             x: {
                 display: true,
+                backgroundColor: "rgba(54, 162, 235, 0.5)", // Blue color with transparency
                 ticks: {
                     autoSkip: true,
                     maxRotation: 90,
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             y: {
                 display: true,
+                
                 ticks: {
                     fontSize: 14, // Increase font size for y-axis labels
                     font: {
@@ -33,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
         layout: {
+            backgroundColor: "rgba(54, 162, 235, 0.5)", // Blue color with transparency
             padding: {
                 top: 10,
                 bottom: 10,
@@ -52,8 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
         datasets: [{
             data: [],
             fill: false,
-            borderColor: "blue",
             tension: 0.1,
+            borderColor: 'blue', // Solid blue border
+            borderWidth: 1.5, // Border width for the bars
+            backgroundColor:"lightblue"
         }],
     };
 
@@ -62,22 +67,29 @@ document.addEventListener("DOMContentLoaded", function () {
         datasets: [{
             data: [],
             fill: false,
-            borderColor: "green",
+            backgroundColor:"lightgreen",
+            borderColor: 'green', // Solid blue border
+            borderWidth: 2, // Border width for the bars
             tension: 0.1,
         }],
     };
 
     // Create the line charts with initial empty data
     myChart1 = new Chart(ctx1, {
-        type: "line",
+        type: "bar",
         data: data1,
         options: options,
+        backgroundColor: "rgba(54, 162, 235, 0.5)", // Blue color with transparency
+      
+        
     });
 
     myChart2 = new Chart(ctx2, { // Create myChart2 for turbidity
-        type: "line",
+        type: "bar",
         data: data2,
         options: options,
+        backgroundColor: 'rgba(54, 162, 235, 0.5)', // Blue color with transparency
+    
     });
 
     // Call the fetchWaterQualityData function to initially fetch and update data

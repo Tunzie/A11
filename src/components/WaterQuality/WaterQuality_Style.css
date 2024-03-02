@@ -116,10 +116,11 @@ html {
   position: relative;
 }
 .chart-label {
-  font-size: 1.4;
+  font-size: 1.8;
   font-weight: bold;
   margin-bottom: 5px;
   margin-right: auto;
+  margin-left: auto;
 }
 
 #alert-container {
