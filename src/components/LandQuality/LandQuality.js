@@ -175,7 +175,7 @@ function fetchSoilDataAndUpdateCharts(latitude, longitude) {
       const time = data.hourly.time;
       const temperatureData = data.hourly.soil_temperature_0_to_7cm;
       const moistureData = data.hourly.soil_moisture_0_to_7cm;
-
+      
       // Update labels and data for temperature chart
       myChart1.data.labels = time;
       myChart1.data.datasets[0].data = temperatureData;
