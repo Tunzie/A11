@@ -52,27 +52,39 @@ html {
 
 #app {
   display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
+
 }
 
 .window {
   display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  max-width: 50%;
-  transition: transform 0.3s ease; /* Add transition */
-  padding: 10px;
-}
-.bigwindow {
-  position: absolute;
-  top: 0;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  transition: transform 0.3s ease;
 }
 
-.window:hover {
-  transform: scale(1.1); /* Scale image up by 10% */
+.bigwindow {
+  text-align: center;
+  padding: 20px;
+  width: 400px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the element */
 }
+
+
+.window:hover {
+
+  transform: scale(1.1); /* Scale image up by 10% */
+
+}
+
+
 .filterbar {
   display: flex;
   padding: 3px;
@@ -80,9 +92,17 @@ html {
   height: 50%;
 }
 
+
+.container {
+  width: 85%; /* Adjust content container width */
+  padding: 20px;
+}
+
 canvas {
+  
   max-width: 100%;
   height: auto;
+  
 }
 h1 {
   font-size: xx-large;
