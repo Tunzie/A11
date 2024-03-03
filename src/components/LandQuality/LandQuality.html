@@ -15,60 +15,23 @@
   <!-- Include Leaflet Control Geocoder CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <!-- Link to Your External CSS File -->
-  <link rel="stylesheet" href="LandQuality_Style.css" />
+  <link rel="stylesheet" type="text/css" href="LandQuality.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script type="module" src="LandQuality.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
 
-  <div id="app">
-    <!-- Left Sidebar / Menu -->
-    <aside id="sideMenu" class="relative">
-      <h2 class="text-xl font-bold mb-4">Menu</h2>
-      <ul>
-        <!-- Side Menu Options -->
-        <li>
-          <a href="AirQuality.html" class="block py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a>
-        </li>
-        <li>
-          <a href="WaterQuality.html" class="block py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a>
-        </li>
-        <li>
-          <a href="WeatherConditions.html" class="block py-2"><i class="fas fa-cloud-sun mr-2"></i>Weather
-            Conditions</a>
-        </li>
-        <li>
-          <a href="LandQuality.html" class="block py-2"><i class="fas fa-mountain mr-2"></i>Land Quality</a>
-        </li>
-        <li class="relative flex items-center">
-          <a href="../../alerts.html" class="block py-2">
-            <i class="fas fa-bell mr-2"></i>
-            <!-- Bell icon -->
-            Alerts
-          </a>
-          <span id="alertsNotification"
-            class="ml-2 bg-red-500 rounded-full w-4 h-4 text-white text-xs flex items-center justify-center">2</span>
-        </li>
-        <li class="relative flex items-center">
-          <a href="../../settings.html" class="block py-2">
-            <i class="fas fa-bell mr-2"></i>
-            <!-- Bell icon -->
-            Settings
-          </a>
-        </li>
-      </ul>
-    </aside>
-
-    <!-- Main content area -->
-    <div class="main-content">
-      <!-- Header -->
-      <header class="mb-4 border-b border-gray-600 pb-2 w-full">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">Environmental Monitoring Dashboard - Land Quality</h1>
-      </header>
-
+  <div id="app" class="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-4">
+  
       <!-- Map and Elevation -->
-      <div class="flex flex-wrap">
+    <div class="flex-col">
         <!-- Map Window -->
-        <div class="window map-window mb-4">
+        <div class="flexwindow map-window mb-4">
           <h3 class="text-xl font-semibold mb-2">Choose Location</h3>
           <div id="map" class="w-full h-64"></div>
         </div>
@@ -82,7 +45,6 @@
           </div>
         </div>
 
-
         <!-- Charts Window -->
         <div class="window charts-window mb-4">
           <div class="chart-labels">
@@ -94,108 +56,9 @@
             <canvas id="line-chart2" width="400" height="100"></canvas>
           </div>
         </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Settings Icon -->
-  <button id="settingsButton" aria-label="Settings" onclick="toggleSettingsModal()"
-    style="position: fixed; bottom: 20px; right: 20px; font-size: 24px">
-    <i class="fas fa-cog"></i>
-  </button>
-
-  <!-- Settings Modal -->
-  <div id="settingsModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-      <h2 class="text-2xl font-semibold mb-4">Settings</h2>
-      <ul>
-        <li class="flex items-center mb-4">
-          <div class="toggle-switch">
-            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
-            <label for="darkModeToggle"></label>
-          </div>
-          <label class="ml-2">Dark Mode</label>
-        </li>
-        <li class="flex items-center mb-4">
-          <div class="toggle-switch">
-            <input type="checkbox" id="notificationsToggle" onchange="toggleNotifications()" checked />
-            <label for="notificationsToggle"></label>
-          </div>
-          <label class="ml-2">Notifications</label>
-        </li>
-        <li class="flex items-center">
-          <div class="toggle-switch">
-            <input type="checkbox" id="alertsToggle" onchange="toggleAlerts()" checked />
-            <label for="alertsToggle"></label>
-          </div>
-          <label class="ml-2">Alerts</label>
-        </li>
-      </ul>
-      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="toggleSettingsModal()">
-        Close
-      </button>
     </div>
   </div>
-
-  <!-- Accessibility Button -->
-  <button id="accessibilityButton" aria-label="Accessibility Options"
-    style="position: fixed; bottom: 80px; right: 20px; font-size: 24px" onclick="openAccessibilityModal()">
-    <i class="fas fa-wheelchair"></i>
-  </button>
-
-  <!-- Accessibility Modal -->
-  <div id="accessibilityModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
-    <div class="bg-white p-6 rounded-lg shadow-lg">
-      <h2 class="text-2xl font-semibold mb-4">Accessibility Options</h2>
-      <ul>
-        <li class="flex items-center mb-4">
-          <div class="toggle-switch">
-            <input type="checkbox" id="largeTextToggle" onchange="toggleLargeText()" />
-            <label for="largeTextToggle"></label>
-          </div>
-          <label class="ml-2">Large Text</label>
-        </li>
-        <li class="flex items-center mb-4">
-          <div class="toggle-switch">
-            <input type="checkbox" id="highContrastToggle" onchange="toggleHighContrast()" />
-            <label for="highContrastToggle"></label>
-          </div>
-          <label class="ml-2">High Contrast</label>
-        </li>
-        <li class="flex items-center">
-          <div class="toggle-switch">
-            <input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion()" />
-            <label for="reduceMotionToggle"></label>
-          </div>
-          <label class="ml-2">Reduce Motion</label>
-        </li>
-      </ul>
-      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="closeAccessibilityModal()">
-        Close
-      </button>
-    </div>
-  </div>
-  <script>
-    // Fetch the footer content
-    fetch("footer.html")
-      .then((response) => response.text())
-      .then((html) => {
-        // Inject the footer content into the footer <div>
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch((error) => console.error("Error fetching footer:", error));
-  </script>
-  <footer class="footer-container bg-gray-800 text-white py-6">
-    <div id="footer"></div>
-  </footer>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-  <script src="LandQuality.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
 </body>
 
 </html>

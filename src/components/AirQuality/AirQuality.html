@@ -6,244 +6,45 @@
     <title>Air Quality</title>
     <link rel="icon" type="image/png" href="Assets/icon.png" />
     <!-- Include Tailwind CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <!-- Include Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <!-- Link to Your External CSS File -->
-    <link rel="stylesheet" href="AirQuality_Style.css" />
+    <link rel="stylesheet" href="/src/components/AirQuality/AirQuality.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <script type="module" src="AirQuality.js"></script>
+    <script type="module" src="/src/components/AirQuality/AirQuality.js"></script>
   </head>
 
   <body>
-    <!-- Left Sidebar / Menu -->
-    <aside id="sideMenu" class="relative">
-      <h2 class="text-xl font-bold mb-4">Menu</h2>
-      <ul>
-          <!-- Side Menu Options -->
-          <li><a href="AirQuality.html" class="block py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
-          <li><a href="WaterQuality.html" class="block py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a>
-          </li>
-          <li><a href="WeatherConditions.html" class="block py-2"><i class="fas fa-cloud-sun mr-2"></i>Weather
-                  Conditions</a></li>
-          <li><a href="LandQuality.html" class="block py-2"><i class="fas fa-mountain mr-2"></i>Land Quality</a>
-          </li>
-          <li class="relative flex items-center">
-              <a href="../../alerts.html" class="block py-2">
-                  <i class="fas fa-bell mr-2"></i> <!-- Bell icon -->
-                  Alerts
-              </a>
-              <span id="alertsNotification" class="ml-2 bg-red-500 rounded-full w-4 h-4 text-white text-xs flex items-center justify-center">2</span>
-          </li>
-          <li class="relative flex items-center">
-              <a href="../../settings.html" class="block py-2">
-                  <i class="fas fa-bell mr-2"></i> <!-- Bell icon -->
-               Settings
-              </a>
-          
-          </li>
 
-      </ul>
-    </aside>
-    <div id="app">
-      <div class="bigwindow">
+    <div class="container mx-auto py-8" >
+      <div id="bigwindow" class="bigwindow">
         <div class="filterbar">
           <button id="button1" onclick="filterSelected('button1')">H</button>
           <button id="button2" onclick="filterSelected('button2')">D</button>
           <button id="button3" onclick="filterSelected('button3')">M</button>
-          <button id="button4" onclick="filterSelected('button4')">Y</button>
         </div>
         <h1>Air Quality Score</h1>
         <canvas id="line-chart4" width="500" height="300"></canvas>
       </div>
-      <div class="window">
-        <h1>Partical Pollution</h1>
-        <canvas id="line-chart1" width="400" height="200"></canvas>
-      </div>
-      <div class="window">
-        <h1>O&#8323;</h1>
-        <canvas id="line-chart2" width="400" height="200"></canvas>
-      </div>
-      <div class="window">
-        <h1>PM&#8321;&#8320;</h1>
-        <canvas id="line-chart3" width="400" height="200"></canvas>
+
+      <div class="flex flex-row justify-center mt-96">
+        <div class="window">
+          <h1>Partical Pollution</h1>
+          <canvas id="line-chart1" width="400" height="200"></canvas>
+        </div>
+        <div class="window">
+          <h1>O&#8323;</h1>
+          <canvas id="line-chart2" width="400" height="200"></canvas>
+        </div>
+        <div class="window">
+          <h1>PM&#8321;&#8320;</h1>
+          <canvas id="line-chart3" width="400" height="200"></canvas>
+        </div>
       </div>
     </div>
-<!-- Settings Icon -->
-<button id="settingsButton" aria-label="Settings" onclick="toggleSettingsModal()"
-style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
-<i class="fas fa-cog"></i>
-</button>
 
-<!-- Settings Modal -->
-<div id="settingsModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
-<div class="bg-white p-6 rounded-lg shadow-lg">
-    <h2 class="text-2xl font-semibold mb-4">Settings</h2>
-    <ul>
-
-        <li class="flex items-center mb-4">
-            <div class="toggle-switch">
-                <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-                <label for="darkModeToggle"></label>
-            </div>
-            <label class="ml-2">Dark Mode</label>                                
-        </li>
-        <li class="flex items-center mb-4">
-            <div class="toggle-switch">
-                <input type="checkbox" id="notificationsToggle" onchange="toggleNotifications()" checked>
-                <label for="notificationsToggle"></label>
-            </div>
-            <label class="ml-2">Notifications</label>
-        </li>
-        <li class="flex items-center">
-            <div class="toggle-switch">
-                <input type="checkbox" id="alertsToggle" onchange="toggleAlerts()" checked>
-                <label for="alertsToggle"></label>
-            </div>
-            <label class="ml-2">Alerts</label>
-        </li>
-    </ul>
-    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="toggleSettingsModal()">Close</button>
-</div>
-</div>
-
-<!-- Accessibility Button -->
-<button id="accessibilityButton" aria-label="Accessibility Options"
-style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;"
-onclick="openAccessibilityModal()">
-<i class="fas fa-wheelchair"></i>
-</button>
-
-<!-- Accessibility Modal -->
-<div id="accessibilityModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
-<div class="bg-white p-6 rounded-lg shadow-lg">
-<h2 class="text-2xl font-semibold mb-4">Accessibility Options</h2>
-<ul>
-<li class="flex items-center mb-4">
-<div class="toggle-switch">
-<input type="checkbox" id="largeTextToggle" onchange="toggleLargeText()">
-<label for="largeTextToggle"></label>
-</div>
-<label class="ml-2">Large Text</label>
-</li>
-<li class="flex items-center mb-4">
-<div class="toggle-switch">
-<input type="checkbox" id="highContrastToggle" onchange="toggleHighContrast()">
-<label for="highContrastToggle"></label>
-</div>
-<label class="ml-2">High Contrast</label>
-</li>
-<li class="flex items-center">
-<div class="toggle-switch">
-<input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion()">
-<label for="reduceMotionToggle"></label>
-</div>
-<label class="ml-2">Reduce Motion</label>
-</li>
-</ul>
-<button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="closeAccessibilityModal()">Close</button>
-</div>
-</div>
-
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Include Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-          // Sample data for the line chart
-          var data = {
-            labels: [
-              "January",
-              "February",
-              "March",
-              "April",
-              "May",
-              "June",
-              "July",
-            ],
-            datasets: [
-              {
-                data: [6.5, 5.9, 8.0, 8.1, 5.6, 5.5, 4],
-                fill: false,
-                borderColor: "green",
-                tension: 0.1,
-              },
-            ],
-          };
-      
-          // Configuration options for the chart
-          var options = {
-            scales: {
-              x: {
-                display: true, // Hide x-axis
-              },
-              y: {
-                display: true, // Hide y-axis
-              },
-            },
-            plugins: {
-              legend: {
-                display: false, // Hide legend
-              },
-            },
-            layout: {
-              padding: {
-                top: 10,
-                bottom: 10,
-                left: 10,
-                right: 10,
-              },
-            },
-          };
-      
-          // Get the context of the canvas elements we want to select
-          var ctx1 = document.getElementById("line-chart1").getContext("2d");
-          var ctx2 = document.getElementById("line-chart2").getContext("2d");
-          var ctx3 = document.getElementById("line-chart3").getContext("2d");
-      
-          // Create the line charts
-          var myChart1 = new Chart(ctx1, {
-            type: "line",
-            data: data,
-            options: options,
-          });
-      
-          var myChart2 = new Chart(ctx2, {
-            type: "line",
-            data: data,
-            options: options,
-          });
-          var myChart3 = new Chart(ctx3, {
-            type: "line",
-            data: data,
-            options: options,
-          });
-
-        });
-      </script>
-
-      <script>
-        // Fetch the footer content
-        fetch('footer.html')
-          .then(response => response.text())
-          .then(html => {
-            // Inject the footer content into the footer <div>
-            document.getElementById('footer').innerHTML = html;
-          })
-          .catch(error => console.error('Error fetching footer:', error));
-      </script>
-      
+  
   </body>
-  <footer class="footer-container bg-gray-800 text-white py-6">
-    <div id="footer"></div>
-  </footer>
 </html>

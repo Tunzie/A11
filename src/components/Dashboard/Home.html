@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+    <!-- Include Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <!-- Link to Your External CSS File -->
+    <link rel="stylesheet" href="../../styles.css" />
+    <!-- Include JavaScript -->
+    <script src="../../main.js"></script>
+  </head>
+  <body>
+    <div class="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-2 gap-7">
+      <!-- Air Quality Section -->
+      <div
+        id="airQualitySection"
+        class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-2xl font-semibold text-blue-600 mb-4">Air Quality</h2>
+          <div class="flex justify-center items-center mb-6">
+            <i class="fas fa-wind text-blue-600 text-5xl mr-4"></i>
+            <!-- Air Quality icon -->
+            <div>
+              <p class="text-lg text-gray-700">
+                Current AQI: <span class="font-bold text-2xl">65</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Status: <span class="font-bold text-green-600">Good</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Pollutants: <span class="font-bold">PM2.5, PM10</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Health Advisory:
+                <span class="font-bold">No health impacts</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <i class="fas fa-chart-line text-gray-600 text-xl mr-2"></i>
+            <!-- Chart icon -->
+            <span class="text-sm text-gray-600">Last Updated: 10:30 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Water Quality Section -->
+      <div
+        id="waterQualitySection"
+        class="bg-white pa-6 rounded-lg shadow-lg flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-2xl font-semibold text-green-600 mb-4">
+            Water Quality
+          </h2>
+          <div class="flex justify-center items-center mb-6">
+            <i class="fas fa-tint text-green-600 text-5xl mr-4"></i>
+            <!-- Water Quality icon -->
+            <div>
+              <p class="text-lg text-gray-700">
+                pH Level: <span class="font-bold text-2xl">7.2</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Status: <span class="font-bold text-yellow-600">Moderate</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Turbidity: <span class="font-bold">Low</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Contaminants: <span class="font-bold">Lead, Chlorine</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <i class="fas fa-chart-line text-gray-600 text-xl mr-2"></i>
+            <!-- Chart icon -->
+            <span class="text-sm text-gray-600">Last Updated: 11:45 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weather Conditions Section -->
+      <div
+        id="weatherConditionsSection"
+        class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-2xl font-semibold text-orange-600 mb-4">
+            Weather Conditions
+          </h2>
+          <div class="flex justify-center items-center mb-6">
+            <i class="fas fa-cloud-sun text-orange-600 text-5xl mr-4"></i>
+            <!-- Weather icon -->
+            <div>
+              <p class="text-lg text-gray-700">
+                Temperature: <span class="font-bold text-2xl">23°C</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Conditions:
+                <span class="font-bold text-blue-600">Partly Cloudy</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Wind Speed: <span class="font-bold">10 km/h</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Humidity: <span class="font-bold">55%</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <i class="fas fa-chart-line text-gray-600 text-xl mr-2"></i>
+            <!-- Chart icon -->
+            <span class="text-sm text-gray-600">Last Updated: 12:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Land Quality Section -->
+      <div
+        id="landQualitySection"
+        class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-2xl font-semibold text-brown-600 mb-4">
+            Land Quality
+          </h2>
+          <div class="flex justify-center items-center mb-6">
+            <i class="fas fa-mountain text-brown-600 text-5xl mr-4"></i>
+            <!-- Land Quality icon -->
+            <div>
+              <p class="text-lg text-gray-700">
+                Elevation: <span class="font-bold text-2xl">3500 ft</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Status: <span class="font-bold text-red-600">High Risk</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Soil Type: <span class="font-bold">Clay</span>
+              </p>
+              <p class="text-lg text-gray-700">
+                Vegetation: <span class="font-bold">Sparse</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <i class="fas fa-chart-line text-gray-600 text-xl mr-2"></i>
+            <!-- Chart icon -->
+            <span class="text-sm text-gray-600">Last Updated: 11:30 AM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

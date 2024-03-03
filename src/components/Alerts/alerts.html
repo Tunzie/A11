@@ -1,149 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alerts</title>
+    <title>Weather Alerts</title>
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Include Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Link to Your External CSS File -->
-    <link rel="stylesheet" href="alerts.css">
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="/src/components/Alerts/Alerts.css"/>
+    <script type="module" src="/src/components/Alerts/Alerts.js"></script>
+    <!-- Include Leaflet and Font Awesome JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <style>
+        /* Custom CSS for Weather Alerts */
+        .alert {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+ 
+        .alert .icon {
+            margin-right: 15px;
+        }
+ 
+        .alert .message {
+            font-weight: bold;
+        }
+ 
+        /* Weather Icons */
+        .fa-sun {
+            color: #FFD700; /* Yellow */
+        }
+ 
+        .fa-cloud-rain {
+            color: #1E90FF; /* Dodger Blue */
+        }
+ 
+        .fa-snowflake {
+            color: #00BFFF; /* Deep Sky Blue */
+        }
+ 
+        .fa-bolt {
+            color: #FF6347; /* Tomato */
+        }
+ 
+        /* Map container */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body class="bg-gray-100">
-
+ 
     <!-- Main Content -->
     <div class="container mx-auto py-8">
-        <h1 class="text-3xl font-bold mb-4">Alerts</h1>
-
-        <!-- Example Alert -->
-        <div class="bg-white p-6 rounded-lg shadow mb-4">
-            <div class="flex items-center">
-                <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mr-4"></i>
-                <div>
-                    <h2 class="text-lg font-semibold">Yellow warning for flooding due to rain</h2>
-                    <p class="text-gray-700">From 10:00 PM until Sunday, 1:00 PM IST</p>
-                </div>
-            </div>
-        </div>
-
-                <!-- Example Alert 2 -->
-                <div class="bg-white p-6 rounded-lg shadow mb-4">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-circle text-red-500 text-2xl mr-4"></i>
-                        <div>
-                            <h2 class="text-lg font-semibold">Red alert for high levels of pollution</h2>
-                            <p class="text-gray-700">Pollutants: PM2.5, PM10</p>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Example Alert 3 -->
-                <div class="bg-white p-6 rounded-lg shadow mb-4">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-triangle text-yellow-500 text-2xl mr-4"></i>
-                        <div>
-                            <h2 class="text-lg font-semibold">Yellow advisory for strong winds</h2>
-                            <p class="text-gray-700">Expected wind speed: 30 mph</p>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Example Alert 4 -->
-                <div class="bg-white p-6 rounded-lg shadow mb-4">
-                    <div class="flex items-center">
-                        <i class="fas fa-exclamation-circle text-red-500 text-2xl mr-4"></i>
-                        <div>
-                            <h2 class="text-lg font-semibold">Red alert for heatwave</h2>
-                            <p class="text-gray-700">Temperature expected to reach 40°C</p>
-                        </div>
-                    </div>
-                </div>
-
+        <h1 class="text-3xl font-bold mb-4">Weather Alerts</h1>
+ 
+        <!-- Map Container -->
+        <div id="map"></div>
+ 
+        <!-- Alerts Container -->
+        <div id="alertsContainer"></div>
+ 
         <!-- Back Button -->
-        <a href="javascript:history.back()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-block">Back</a>
+        <a href="javascript:history.back()"
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-block">Back</a>
     </div>
-                <!-- Settings Icon -->
-                <button id="settingsButton" aria-label="Settings" onclick="toggleSettingsModal()"
-                    style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
-                    <i class="fas fa-cog"></i>
-                </button>
+ 
 
-                <!-- Settings Modal -->
-                <div id="settingsModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h2 class="text-2xl font-semibold mb-4">Settings</h2>
-                        <ul>
 
-                            <li class="flex items-center mb-4">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-                                    <label for="darkModeToggle"></label>
-                                </div>
-                                <label class="ml-2">Dark Mode</label>                                
-                            </li>
-                            <li class="flex items-center mb-4">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="notificationsToggle" onchange="toggleNotifications()" checked>
-                                    <label for="notificationsToggle"></label>
-                                </div>
-                                <label class="ml-2">Notifications</label>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="alertsToggle" onchange="toggleAlerts()" checked>
-                                    <label for="alertsToggle"></label>
-                                </div>
-                                <label class="ml-2">Alerts</label>
-                            </li>
-                        </ul>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="toggleSettingsModal()">Close</button>
-                    </div>
-                </div>
-                
-<!-- Accessibility Button -->
-<button id="accessibilityButton" aria-label="Accessibility Options"
-style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;"
-onclick="openAccessibilityModal()">
-<i class="fas fa-wheelchair"></i>
-</button>
 
-<!-- Accessibility Modal -->
-<div id="accessibilityModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden">
-<div class="bg-white p-6 rounded-lg shadow-lg">
-    <h2 class="text-2xl font-semibold mb-4">Accessibility Options</h2>
-    <ul>
-        <li class="flex items-center mb-4">
-            <div class="toggle-switch">
-                <input type="checkbox" id="largeTextToggle" onchange="toggleLargeText()">
-                <label for="largeTextToggle"></label>
-            </div>
-            <label class="ml-2">Large Text</label>
-        </li>
-        <li class="flex items-center mb-4">
-            <div class="toggle-switch">
-                <input type="checkbox" id="highContrastToggle" onchange="toggleHighContrast()">
-                <label for="highContrastToggle"></label>
-            </div>
-            <label class="ml-2">High Contrast</label>
-        </li>
-        <li class="flex items-center">
-            <div class="toggle-switch">
-                <input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion()">
-                <label for="reduceMotionToggle"></label>
-            </div>
-            <label class="ml-2">Reduce Motion</label>
-        </li>
-    </ul>
-    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="closeAccessibilityModal()">Close</button>
-</div>
-</div>
-
-    <!-- Include JavaScript -->
-    <script src="main.js"></script>
+    
 </body>
-
 </html>

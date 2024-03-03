@@ -2,36 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-#sideMenu {
-  width: 15%;
-  background-color: #2d2d2d;
-  color: #ffffff;
-  padding: 20px;
-}
+body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
 
-#sideMenu h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
+    #app {
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center; /* Vertically center */
+      height: 100%;
+    }
 
-#sideMenu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .window {
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center; /* Vertically center */
+      flex-direction: column;
+      max-width: 50%;
+      transition: transform 0.3s ease; /* Add transition */
+    }
 
-#sideMenu a {
-  display: block;
-  padding: 1rem 0;
-  text-decoration: none;
-  color: #ffffff;
-  transition: background-color 0.3s;
-}
+    .window:hover {
+      transform: scale(1.1); /* Scale image up by 10% */
+    }
 
-#sideMenu a:hover {
-  background-color: #4a4a4a;
-}
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    h1 {
+      font-size: xx-large;
+    }
 
 #alert {
   background-color: orange;

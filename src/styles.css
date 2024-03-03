@@ -4,8 +4,8 @@
 
 /* Dark Mode Styles */
 .dark {
-    background-color: #1a202c;
-    color: #00a2ff;
+  background-color: #1a202c;
+  color: #00a2ff;
 }
 .dark h1,
 .dark h2,
@@ -13,13 +13,13 @@
 .dark h4,
 .dark h5,
 .dark h6 {
-    color: #00a2ff;
+  color: #00a2ff;
 }
 
 /* Dark Mode Styles */
 .dark-mode {
-    background-color: #1a202c;
-    color: #00a2ff;
+  background-color: #1a202c;
+  color: #00a2ff;
 }
 
 .dark-mode h1,
@@ -28,256 +28,339 @@
 .dark-mode h4,
 .dark-mode h5,
 .dark-mode h6 {
-    color: #00a2ff;
+  color: #00a2ff;
 }
 
 /* Add styles for the toggle button and location button */
 #loginButton {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
 
 #getLocation {
-    background-color: #3498db;
-    color: #ffffff;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 #sideMenu {
-    width: 15%;
-    background-color: #2d2d2d;
-    color: #ffffff;
-    padding: 20px;
+  width: 15%;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 20px;
 }
 
 #sideMenu h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 #sideMenu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #sideMenu a {
-    display: block;
-    padding: 1rem 0;
-    text-decoration: none;
-    color: #ffffff;
-    transition: background-color 0.3s;
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s;
 }
 
 #sideMenu a:hover {
-    background-color: #4a4a4a;
+  background-color: #4a4a4a;
 }
 
 #alert {
-    background-color: orange;
-    padding: 3px; 
-    margin: 2px; 
-    gap: 4px; 
-    border-radius: 10px;
-    justify-content: center; 
-    align-items: center; 
-    height: 100%;
-    width:100%;
+  background-color: orange;
+  padding: 3px;
+  margin: 2px;
+  gap: 4px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 /* Add this CSS to your styles.css file */
 /* Toggle Switch */
 .toggle-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 24px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
 }
 
 .toggle-switch input {
-    display: none;
+  display: none;
 }
 
 .toggle-switch label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    cursor: pointer;
-    background-color: #ccc;
-    border-radius: 12px;
-    transition: background-color 0.4s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 12px;
+  transition: background-color 0.4s;
 }
 
 .toggle-switch label:before {
-    position: absolute;
-    content: '';
-    height: 20px;
-    width: 20px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    border-radius: 50%;
-    transition: transform 0.4s;
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
 }
 
 .toggle-switch input:checked + label {
-    background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 .toggle-switch input:checked + label:before {
-    transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 /* Switch Text Labels */
 .toggle-switch + label {
-    margin-left: 10px;
-    user-select: none;
+  margin-left: 10px;
+  user-select: none;
 }
 
 /* Styles for Settings Modal */
 #settingsModal {
-    z-index: 9999;
+  z-index: 9999;
 }
 
 /* Hidden by default */
 #settingsModal.hidden {
-    display: none;
+  display: none;
 }
-
 
 /* Styles for Large Text */
 .large-text {
-    font-size: 20px; /* Adjust as needed */
+  font-size: 20px; /* Adjust as needed */
 }
 
 /* Styles for High Contrast */
 .high-contrast {
-    /* Example high contrast styles, modify as needed */
-    filter: invert(100%);
+  /* Example high contrast styles, modify as needed */
+  filter: invert(100%);
+  background-color: black;
+  color: white;
 }
 
 /* Styles for Reduced Motion */
 .reduce-motion {
-    /* Example reduced motion styles, modify as needed */
-    transition: none;
-    animation: none;
+  /* Example reduced motion styles, modify as needed */
+  transition: none;
+  animation: none;
 }
 
 @media (max-width: 639px) {
-    /* Style for screens up to 639px (xs screens) */
-    .grid-cols-1 {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
+  /* Style for screens up to 639px (xs screens) */
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-  
-  @media (min-width: 640px) and (max-width: 767px) {
-    /* Style for screens between 640px and 767px (sm screens) */
-    .grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  /* Style for screens between 640px and 767px (sm screens) */
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    /* Style for screens between 768px and 1023px (md screens) */
-    .grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Style for screens between 768px and 1023px (md screens) */
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    /* Style for screens between 1024px and 1279px (lg screens) */
-    .grid-cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Style for screens between 1024px and 1279px (lg screens) */
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  
-  @media (min-width: 1280px) {
-    /* Style for screens wider than 1280px (xl screens and up) */
-    .grid-cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+}
+
+@media (min-width: 1280px) {
+  /* Style for screens wider than 1280px (xl screens and up) */
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  
-  /* Accessibility Modal */
-  #accessibilityModal {
-    z-index: 1000;
-  }
-  
-  /* Settings Modal */
-  #settingsModal {
-    z-index: 1000;
-  }
-  
-  /* Toggle Switch Styling */
-  .toggle-switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  .toggle-switch input {
-    display: none;
-  }
-  
-  .toggle-switch label {
-    cursor: pointer;
-    text-indent: -9999px;
-    width: 100%;
-    height: 100%;
-    background: gray;
-    display: block;
-    border-radius: 34px;
-    position: relative;
-  }
-  
-  .toggle-switch label:after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 28px;
-    height: 28px;
-    background: white;
-    border-radius: 28px;
-    transition: 0.3s;
-  }
-  
-  .toggle-switch input:checked + label {
-    background: #2196F3;
-  }
-  
-  .toggle-switch input:checked + label:after {
-    left: calc(100% - 2px);
-    transform: translateX(-100%);
-  }
-  
-  /* Alert Styling */
-  .alert {
-    background-color: #ffe066;
-    color: #333;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-left: 8px solid #ffb833;
-    width: 100%;
-  }
-  
-  /* Footer Styling */
-  footer {
-    background-color: #1a202c;
-  }
-  
-  footer a {
-    color: #cbd5e0;
-  }
-  
-  footer a:hover {
-    color: #ffffff;
-  }
+}
+
+/* Accessibility Modal */
+#accessibilityModal {
+  z-index: 1000;
+}
+
+/* Settings Modal */
+#settingsModal {
+  z-index: 1000;
+}
+
+/* Toggle Switch Styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.toggle-switch label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 100%;
+  height: 100%;
+  background: gray;
+  display: block;
+  border-radius: 34px;
+  position: relative;
+}
+
+.toggle-switch label:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 28px;
+  transition: 0.3s;
+}
+
+.toggle-switch input:checked + label {
+  background: #2196f3;
+}
+
+.toggle-switch input:checked + label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+/* Alert Styling */
+.alert {
+  background-color: #ffe066;
+  color: #333;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 8px solid #ffb833;
+  width: 100%;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #1a202c;
+}
+
+footer a {
+  color: #cbd5e0;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* Style for the accessibility button */
+#floatButtons {
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+  font-size: 24px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* START - Style for the modal login-signup */
+#loginModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+#modalContent {
+  position: relative; /* Position relative for child absolute positioning */
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+#closeButton {
+  position: absolute;
+  top: 10px;
+  font-size: 60px; /* Increased font size */
+  color: black;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#acessibilityModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: right;
+  align-items: center;
+}
+#settingsModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: right;
+  align-items: center;
+}
+/* Style for the iframe */
+#loginIframe {
+  width: 480px;
+  height: calc(680px - 30px); /* Subtract close button height */
+  border: none;
+}
+#acessibilityIframe {
+  width: 520px;
+  height: calc(650px - 30px); /* Subtract close button height */
+  border: none;
+}
+#settingsIframe {
+  width: 600px;
+  height: calc(680px - 30px); /* Subtract close button height */
+  border: none;
+  margin-left: 50px;
+}
+/* END -  Style for the modal login-signup */

@@ -14,6 +14,13 @@ function updateData(elementId, data) {
 let isDarkMode = false;
 
 
+
+// Define a module named "locationData" to export latitude, longitude, and address
+const locationData = {
+    latitude: null,
+    longitude: null,
+    address: null
+};
 // Add location fetching functionality
 function getLocation() {
     if (navigator.geolocation) {
@@ -22,13 +29,6 @@ function getLocation() {
         alert("Geolocation is not supported by this browser.");
     }
 }
-
-// Define a module named "locationData" to export latitude, longitude, and address
-const locationData = {
-    latitude: null,
-    longitude: null,
-    address: null
-};
 
 function showPosition(position) {
     // Update latitude and longitude
@@ -68,9 +68,7 @@ function showError(error) {
             break;
     }
 }
-function loginButton() {
-    window.location.href='../src/components/Login/login.html';
-}
+
 // Update the data on page load
 window.onload = function () {
     updateData("airQualityData", fakeAirQualityData);
@@ -83,7 +81,6 @@ window.onload = function () {
 };
 
 // JavaScript functions for toggling settings
-
 // Toggle Accessibility
 function toggleAccessibility() {
     const accessibilityToggle = document.getElementById('accessibilityToggle');
@@ -127,7 +124,6 @@ function toggleNotifications() {
         console.log("Notifications are OFF");
     }
 }
-
 // Toggle Alerts
 function toggleAlerts() {
     const alertsToggle = document.getElementById('alertsToggle');
@@ -193,4 +189,4 @@ function toggleReduceMotion() {
 
 
 // Export the locationData module
-export { locationData };
+export {locationData};
