@@ -10,7 +10,7 @@ function updateData(elementId, data) {
     element.innerHTML = Object.entries(data).map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`).join('');
 }
 
-// Add dark mode / light mode functionality
+// Add dark mode / light mode fu    ctionality
 let isDarkMode = false;
 
 function toggleMode() {

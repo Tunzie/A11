@@ -1,0 +1,36 @@
+/* Alert Styles */
+.alert {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+ 
+.alert .icon {
+    margin-right: 15px;
+}
+ 
+.alert .message {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+ 
+.alert .code {
+    color: #666;
+}
+ 
+/* Weather Icons */
+.fa-sun {
+    color: #FFD700; /* Yellow */
+}
+ 
+.fa-cloud-rain {
+    color: #1E90FF; /* Dodger Blue */
+}
+ 
+.fa-snowflake {
+    color: #00BFFF; /* Deep Sky Blue */
+}
+ 
+.fa-bolt {
+    color: #FF6347; /* Tomato */
+}

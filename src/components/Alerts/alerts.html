@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Alerts</title>
+    <title>Weather Alerts</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="/src/components/Alerts/Alerts.css"/>
+    <script type="module" src="/src/components/Alerts/Alerts.js"></script>
+    <!-- Include Leaflet and Font Awesome JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <style>
+        /* Custom CSS for Weather Alerts */
+        .alert {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+ 
+        .alert .icon {
+            margin-right: 15px;
+        }
+ 
+        .alert .message {
+            font-weight: bold;
+        }
+ 
+        /* Weather Icons */
+        .fa-sun {
+            color: #FFD700; /* Yellow */
+        }
+ 
+        .fa-cloud-rain {
+            color: #1E90FF; /* Dodger Blue */
+        }
+ 
+        .fa-snowflake {
+            color: #00BFFF; /* Deep Sky Blue */
+        }
+ 
+        .fa-bolt {
+            color: #FF6347; /* Tomato */
+        }
+ 
+        /* Map container */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+ 
+    <!-- Main Content -->
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-4">Weather Alerts</h1>
+ 
+        <!-- Map Container -->
+        <div id="map"></div>
+ 
+        <!-- Alerts Container -->
+        <div id="alertsContainer"></div>
+ 
+        <!-- Back Button -->
+        <a href="javascript:history.back()"
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-block">Back</a>
+    </div>
+</body>
+</html>

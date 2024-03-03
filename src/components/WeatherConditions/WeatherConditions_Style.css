@@ -1,0 +1,44 @@
+body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+    #app {
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center; /* Vertically center */
+      height: 100%;
+    }
+
+    .window {
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center; /* Vertically center */
+      flex-direction: column;
+      max-width: 50%;
+      transition: transform 0.3s ease; /* Add transition */
+    }
+
+    .window:hover {
+      transform: scale(1.1); /* Scale image up by 10% */
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    h1 {
+      font-size: xx-large;
+    }
+#alert {
+  background-color: orange;
+  padding: 3px;
+  margin: 2px;
+  gap: 4px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
