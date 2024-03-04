@@ -78,7 +78,12 @@
 #sideMenu a:hover {
   background-color: #4a4a4a;
 }
-
+/* Add styles for the toggle button and location button */
+#toggleMode {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
 #alert {
   background-color: orange;
   padding: 3px;

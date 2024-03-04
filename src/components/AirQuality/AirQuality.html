@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Air Quality</title>
-    <link rel="icon" type="image/png" href="Assets/icon.png" />
+    <link rel="icon" type="image/png" href="/src/components/Assets/icon.png" />
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <!-- Include Font Awesome -->
@@ -18,17 +18,52 @@
 
   <body>
 
-    <div class="container mx-auto py-8" >
+    
+
+    <div id="app" class="flex h-screen">
+      <!-- Left Sidebar / Menu -->
+      <aside id="sideMenu" class="relative">
+          <h2 class="text-xl font-bold mb-4">Menu</h2>
+          <ul>
+              <!-- Side Menu Options -->
+              <li><a href="/src/components/AirQuality/AirQuality.html" class="block py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
+              <li><a href="/src/components/WaterQuality/WaterQuality.html" class="block py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a>
+              </li>
+              <li><a href="/src/components/WeatherConditions/WeatherConditions.html" class="block py-2"><i class="fas fa-cloud-sun mr-2"></i>Weather
+                      Conditions</a></li>
+              <li><a href="/src/components/LandQuality/LandQuality.html" class="block py-2"><i class="fas fa-mountain mr-2"></i>Land Quality</a>
+              </li>
+              <li class="relative flex items-center">
+                  <a href="\src\components\Alerts\alerts.html" class="block py-2">
+                      <i class="fas fa-bell mr-2"></i> <!-- Bell icon -->
+                      Alerts
+                  </a>
+                  <span id="alertsNotification" class="ml-2 bg-red-500 rounded-full w-4 h-4 text-white text-xs flex items-center justify-center"></span>
+              </li>
+              <li class="relative flex items-center">
+                  <a href="/src/components/Settings/settings.html" class="block py-2">
+                      <i class="fas fa-bell mr-2"></i> <!-- Bell icon -->
+                   Settings
+                  </a> 
+              </li>
+          </ul>
+      </aside>
+
+
+    <div id="app" class="w-full h-full grid grid-rows-3 md:grid-rows-3 gap-3" >
       <div id="bigwindow" class="bigwindow">
-        <div class="filterbar">
+
+        <div class="filterbar align-middle">
           <button id="button1" onclick="filterSelected('button1')">H</button>
           <button id="button2" onclick="filterSelected('button2')">D</button>
           <button id="button3" onclick="filterSelected('button3')">M</button>
         </div>
-        <h1>Air Quality Score</h1>
-        <canvas id="line-chart4" width="500" height="300"></canvas>
-      </div>
 
+
+        <h1>Air Quality Score</h1>
+        <canvas id="line-chart4" ></canvas>
+      </div>
+      <!-- bottom 3 charts -->
       <div class="flex flex-row justify-center mt-96">
         <div class="window">
           <h1>Partical Pollution</h1>
@@ -44,7 +79,7 @@
         </div>
       </div>
     </div>
-
+  </div>
   
   </body>
 </html>

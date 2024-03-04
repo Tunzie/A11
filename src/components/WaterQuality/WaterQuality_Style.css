@@ -1,40 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-body,
-    html {
-      height: 100%;
-      margin: 0;
-    }
+#sideMenu {
+  width: 15%;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  padding: 20px;
+}
 
-    #app {
-      display: flex;
-      justify-content: center; /* Horizontally center */
-      align-items: center; /* Vertically center */
-      height: 100%;
-    }
+#sideMenu h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 
-    .window {
-      display: flex;
-      justify-content: center; /* Horizontally center */
-      align-items: center; /* Vertically center */
-      flex-direction: column;
-      max-width: 50%;
-      transition: transform 0.3s ease; /* Add transition */
-    }
+#sideMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .window:hover {
-      transform: scale(1.1); /* Scale image up by 10% */
-    }
+#sideMenu a {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
 
-    canvas {
-      max-width: 100%;
-      height: auto;
-    }
-    h1 {
-      font-size: xx-large;
-    }
+#sideMenu a:hover {
+  background-color: #4a4a4a;
+}
 
 #alert {
   background-color: orange;
@@ -46,4 +40,94 @@ body,
   align-items: center;
   height: 100%;
   width: 100%;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  display: flex;
+}
+
+.main-content {
+  width: 85%;
+}
+
+.window {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Adjust window sizes */
+.map-window {
+  width: 100%;
+}
+
+.status-elevation-window {
+  width: 100%;
+}
+
+.charts-window {
+  width: 100%;
+}
+
+/* Adjust chart container dimensions */
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  width: 100%;
+}
+
+/* Adjust chart dimensions */
+.chart-container canvas {
+  max-width: calc(50% - 20px); /* Adjust maximum width to fit two charts with spacing */
+  height: auto;
+  margin-bottom: 20px; /* Add spacing between charts */
+}
+
+/* Style for the elevation display */
+#pollutants {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Style for the elevation display */
+#status {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  position: relative;
+}
+.chart-label {
+  font-size: 1.8;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#alert-container {
+  width: 30%;
+  padding: 5px; /* Add padding inside the alert container */
+  margin: 5px 0; /* Add margin to separate from other elements */
+}
+
+#alert {
+  margin: 0;
+  font-weight: bold; /* Make the alert message bold */
+  font-size: 14px; /* Adjust the font size of the alert message */
 }
