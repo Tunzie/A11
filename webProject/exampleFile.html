@@ -1,59 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Environmental Monitoring Dashboard</title>
-    <link rel="icon" type="image/png" href="../src/components/Assets/icon.png">
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Include Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Link to Your External CSS File -->
-    <link rel="stylesheet" href="/src/styles.css">
-    <script type="module" src="/src/main.js"></script>
-
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body> 
 
-
+<body class="bg-gray-100 font-sans">
     <!-- Accessibility Button -->
     <button id="accessibilityButton" aria-label="Accessibility Options"
-        style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;"
-        onclick="openAccessibilityModal()">
+        style="position: fixed; bottom: 80px; right: 20px; font-size: 24px;">
         <i class="fas fa-wheelchair"></i>
     </button>
 
-    <!-- Accessibility Menu -->
-    <div id="accessibilityModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 justify-center items-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-         <h2 class="text-2xl font-semibold mb-4">Accessibility Options</h2>
-        <ul>
-            <li class="flex items-center mb-4">
-                <div class="toggle-switch">
-                    <input type="checkbox" id="largeTextToggle" onchange="toggleLargeText()">
-                    <label for="largeTextToggle"></label>
-                </div>
-                <label class="ml-2">Large Text</label>
-            </li>
-            <li class="flex items-center mb-4">
-                <div class="toggle-switch">
-                    <input type="checkbox" id="highContrastToggle" onchange="toggleHighContrast()">
-                    <label for="highContrastToggle"></label>
-                </div>
-                <label class="ml-2">High Contrast</label>
-            </li>
-            <li class="flex items-center">
-                <div class="toggle-switch">
-                    <input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion()">
-                    <label for="reduceMotionToggle"></label>
-                </div>
-                <label class="ml-2">Reduce Motion</label>
-            </li>
-        </ul>
-        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="closeAccessibilityModal()">Close</button>
-    </div>
-    </div>
 
     <div id="app" class="flex h-screen">
         <!-- Left Sidebar / Menu -->
@@ -61,26 +27,15 @@
             <h2 class="text-xl font-bold mb-4">Menu</h2>
             <ul>
                 <!-- Side Menu Options -->
-                <li><a href="/src/components/AirQuality/AirQuality.html" class="block py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
-                <li><a href="/src/components/WaterQuality/WaterQuality.html" class="block py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a>
+                <li><a href="air_quality.html" class="block py-2"><i class="fas fa-wind mr-2"></i>Air Quality</a></li>
+                <li><a href="water_quality.html" class="block py-2"><i class="fas fa-tint mr-2"></i>Water Quality</a>
                 </li>
-                <li><a href="/src/components/WeatherConditions/WeatherConditions.html" class="block py-2"><i class="fas fa-cloud-sun mr-2"></i>Weather
+                <li><a href="weather_conditions.html" class="block py-2"><i class="fas fa-cloud-sun mr-2"></i>Weather
                         Conditions</a></li>
-                <li><a href="/src/components/LandQuality/LandQuality.html" class="block py-2"><i class="fas fa-mountain mr-2"></i>Land Quality</a>
+                <li><a href="land_quality.html" class="block py-2"><i class="fas fa-mountain mr-2"></i>Land Quality</a>
                 </li>
-                <li class="relative flex items-center">
-                    <a href="\src\components\Alerts\alerts.html" class="block py-2">
-                        <i class="fas fa-bell mr-2"></i> <!-- Bell icon -->
-                        Alerts
-                    </a>
-                    <span id="alertsNotification" class="ml-2 bg-red-500 rounded-full w-4 h-4 text-white text-xs flex items-center justify-center"></span>
-                </li>
-                <li class="relative flex items-center">
-                    <a href="/src/components/Settings/settings.html" class="block py-2">
-                        <i class="fas fa-bell mr-2"></i> <!-- Bell icon -->
-                     Settings
-                    </a> 
-                </li>
+                <li><a href="settings.html" class="block py-2"><i class="fas fa-cogs mr-2"></i>Settings</a></li>
+                <li><a href="alerts.html" class="block py-2"><i class="fas fa-bell mr-2"></i>Alerts</a></li>
             </ul>
         </aside>
 
@@ -91,7 +46,7 @@
                 <h1 class="text-3xl font-bold text-gray-800">Environmental Monitoring Dashboard</h1>
             </header>
             <!-- Dropdown Menu for Choose Data Location -->
-            <div class="mb-4 grid-col-3">
+            <div class="mb-4 grid-col-3>
                     <label for=" dataLocation" class="block text-lg font-semibold mb-2">Choose Data Location:</label>
                 <select id="dataLocation" class="bg-white border border-gray-300 rounded px-3 py-2">
                     <option value="airQuality">Karmiel</option>
@@ -100,12 +55,12 @@
                     <option value="landQuality">Eilat</option>
                 </select>
                 <!-- Location Button -->
-                <button id="getLocation"  onclick="getLocation()" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get
+                <button id="getLocation" class="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none">Get
                     Location</button>
             </div>
 
             <!-- Main Content Grid -->
-            <div class="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-2 gap-7">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
 
                 <!-- Air Quality Section -->
@@ -136,7 +91,7 @@
                 </div>
 
                 <!-- Water Quality Section -->
-                <div id="waterQualitySection" class="bg-white pa-6 rounded-lg shadow-lg flex flex-col justify-between">
+                <div id="waterQualitySection" class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between">
                     <div>
                         <h2 class="text-2xl font-semibold text-green-600 mb-4">Water Quality</h2>
                         <div class="flex justify-center items-center mb-6">
@@ -160,42 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Settings Icon -->
-                <button id="settingsButton" aria-label="Settings" onclick="toggleSettingsModal()"
-                    style="position: fixed; bottom: 20px; right: 20px; font-size: 24px;">
-                    <i class="fas fa-cog"></i>
-                </button>
 
-                <!-- Settings Modal -->
-                <div id="settingsModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 justify-center items-center hidden">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <h2 class="text-2xl font-semibold mb-4">Settings</h2>
-                        <ul>
-                            <li class="flex items-center mb-4">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-                                    <label for="darkModeToggle"></label>
-                                </div>
-                                <label class="ml-2">Dark Mode</label>                                
-                            </li>
-                            <li class="flex items-center mb-4">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="notificationsToggle" onchange="toggleNotifications()" checked>
-                                    <label for="notificationsToggle"></label>
-                                </div>
-                                <label class="ml-2">Notifications</label>
-                            </li>
-                            <li class="flex items-center">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="alertsToggle" onchange="toggleAlerts()" checked>
-                                    <label for="alertsToggle"></label>
-                                </div>
-                                <label class="ml-2">Alerts</label>
-                            </li>
-                        </ul>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" onclick="toggleSettingsModal()">Close</button>
-                    </div>
-                </div>
                 <!-- Weather Conditions Section -->
                 <div id="weatherConditionsSection"
                     class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between">
@@ -248,33 +168,32 @@
                 </div>
 
 
-                <!-- Login Button -->
-                <a id="loginButton" href="/src/components/Login/login.html"  class="bg-gray-800 text-white px-4 py-2 rounded"> Login </a>
+                <!-- Dark Mode / Light Mode Toggle Button -->
+                <button id="toggleMode" class="bg-gray-800 text-white px-4 py-2 rounded focus:outline-none">Toggle
+                    Mode</button>
 
-                <div id="alert" class="alert"><h1 style="float: left; font-size: xx-large;">&#9888</h1> </h1><h1 style="font-size: x-large; font-weight: bold;">Yellow warning for flooding due to rain</h1><p style="padding-inline-start: 14%;">from 10:00 PM till Sunday, 1:00 PM IST</p></div>
 
-            </main>
+        </main>
     </div>
 
     <!-- Footer Section -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto px-5">
             <div class="flex flex-wrap items-center">
-                <div class="w-full md:w-1/4 text-center md:text-left ">
-                    <div class="inline-block align-middle"><i class="far fa-copyright"></i></div>
-                    <h2 class="inline-block text-lg font-bold mb-2">Eden Initiative</h2>
+                <div class="w-full md:w-1/4 text-center md:text-left">
+                    <h2 class="text-lg font-bold mb-2">Company</h2>
                     <p class="mb-4">
-                      123 Main St.<br>
-                      San Francisco, California
+                        123 Main St.<br>
+                        Anytown, USA
                     </p>
                     <p>Phone: (555) 123-4567</p>
-                  </div>
+                </div>
                 <div class="w-full md:w-1/4 text-center md:text-left">
-                    <h2 class="text-lg font-bold mb-2 ">Links</h2>
+                    <h2 class="text-lg font-bold mb-2">Links</h2>
                     <ul class="list-unstyled mb-4">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 hover:underline">About</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 hover:underline">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 hover:underline">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gray-200">Link 1</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gray-200">Link 2</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-gray-200">Link 3</a></li>
                     </ul>
                 </div>
                 <div class="w-full md:w-1/4 text-center md:text-left">
@@ -293,7 +212,7 @@
                 </div>
                 <div class="w-full md:w-1/4 text-center">
                     <h2 class="text-lg font-bold mb-2">Subscribe</h2>
-                    <p class="mb-4">Sign up for our newsletter to get the latest updates.</p>
+                    <p class="mb-4">Sign up for our newsletter to get the latest updates and offers.</p>
                     <form>
                         <input type="email" placeholder="Email Address"
                             class="bg-gray-700 text-white py-2 px-8 rounded-lg mb-3">
@@ -312,6 +231,8 @@
         </div>
     </footer>
 
-   
+    <!-- Include JavaScript -->
+    <script src="script.js"></script>
 </body>
+
 </html>

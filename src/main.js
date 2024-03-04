@@ -4,11 +4,7 @@ const fakeWaterQualityData = { parameter: "pH", value: 7.2 };
 const fakeWeatherConditionsData = { temperature: 25, humidity: 60, windSpeed: 10 };
 // Fake data for demonstration purposes
 const fakeLandQualityData = { parameter: "Soil pH", value: 6.5 };
-// Function to update the displayed data
-function updateData(elementId, data) {
-    const element = document.getElementById(elementId);
-    element.innerHTML = Object.entries(data).map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`).join('');
-}
+console.log("fsd");
 
 // Add dark mode / light mode functionality
 let isDarkMode = false;
@@ -164,7 +160,11 @@ function toggleLargeText() {
         body.classList.remove('large-text');
     }
 }
-
+// Function to toggle the settings modal
+function toggleSettingsModal() {
+    const modal = document.getElementById('settingsModal');
+    modal.classList.toggle('hidden');
+}
 // Toggle High Contrast
 function toggleHighContrast() {
     const highContrastToggle = document.getElementById('highContrastToggle');
