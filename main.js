@@ -4,7 +4,7 @@ const fakeWaterQualityData = { parameter: "pH", value: 7.2 };
 const fakeWeatherConditionsData = { temperature: 25, humidity: 60, windSpeed: 10 };
 // Fake data for demonstration purposes
 const fakeLandQualityData = { parameter: "Soil pH", value: 6.5 };
-console.log("fsd");
+
 
 // Add dark mode / light mode functionality
 let isDarkMode = false;

@@ -1,4 +1,4 @@
-import { locationData } from '../../main.js';
+import { locationData } from '../../../main.js';
 
 const european_aqi = {
   label: 'european_aqi',
