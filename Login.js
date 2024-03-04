@@ -1,5 +1,5 @@
 
-import { isValidEmail, isValidPassword, displayError } from '../../utils/loginUtil.js';
+import { isValidEmail, isValidPassword, displayError } from './src/utils/loginUtil.js';
  // Add event listener after the script is loaded
 document.getElementById('login-form').addEventListener('submit', validateLogin);
 

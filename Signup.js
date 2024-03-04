@@ -1,5 +1,5 @@
 
-import { isValidEmail, isValidPassword, displayError } from '../../utils/loginUtil.js';
+import { isValidEmail, isValidPassword, displayError } from './src/utils/loginUtil.js';
 
 document.getElementById('signup-form').addEventListener('submit', validateSignup);
 
