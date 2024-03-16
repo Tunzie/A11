@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-//import Accessibilik from 'accessibility-react-widget';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
+import Alerts from "./components/Alerts/Alerts"; // Import Alerts component
 
 function App() {
   useEffect(() => {
@@ -17,16 +17,16 @@ function App() {
     };
   }, []);
 
-
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/alerts" element={<Alerts />} /> {}
         </Routes>
       </BrowserRouter>
     </div>
-);
+  );
 }
 
 export default App;
