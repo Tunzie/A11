@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect } from 'react';
+import './alerts.css'; // Import CSS file
+import './components/Alerts/alerts.css';
 function Alerts() {
-  const [alerts, setAlerts] = useState([]);
   const alertsContainer = document.getElementById("alertsContainer");
 
   useEffect(() => {
