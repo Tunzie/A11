@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Accessibilik from 'accessibility-react-widget';
 import Alerts from "./components/Alerts/Alerts";
-
-
+import Dashboard from "./components/Dashboard/Dashboard";
 function App() {
 
   useEffect(() => {
@@ -25,6 +24,7 @@ function App() {
         <Accessibilik />
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={   <Dashboard/>    } />
           <Route path="/login" element={<Login />} />
           <Route path="/alerts" element={<Alerts />} />
         </Routes>
