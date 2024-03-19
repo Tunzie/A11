@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import './alerts.css'; // Import CSS file
-import './components/Alerts/alerts.css';
+import './Alerts.css';
+
 function Alerts() {
   const alertsContainer = document.getElementById("alertsContainer");
 

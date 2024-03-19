@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
-import Alerts from "./components/Alerts/Alerts"; // Import Alerts component
+import Accessibilik from 'accessibility-react-widget';
+import Alerts from "./components/Alerts/Alerts";
+
 
 function App() {
+
   useEffect(() => {
     const script = document.createElement("script");
 
@@ -19,10 +22,11 @@ function App() {
 
   return (
     <div className="App">
+        <Accessibilik />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/alerts" element={<Alerts />} /> {}
+          <Route path="/alerts" element={<Alerts />} />
         </Routes>
       </BrowserRouter>
     </div>
