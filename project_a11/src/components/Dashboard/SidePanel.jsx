@@ -57,21 +57,21 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/AirQuality")}>
+          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/airQuality")}>
             <Wind />
             <span className={!isExpanded ? "hidden" : "block"}>Air Quality</span>
           </button>
         </div>
 
         <div className="nav-links w-full">
-        <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/WaterQuality")}>
+        <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/waterQuality")}>
             <Droplet />
             <span className={!isExpanded ? "hidden" : "block"}>Water Quality</span>
           </button>
         </div>
 
         <div className="nav-links w-full">
-        <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/WeatherConditions")}>
+        <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/watherConditions")}>
             <CloudSunRain />
             <span className={!isExpanded ? "hidden" : "block"}>
             Weather Conditions
@@ -80,7 +80,7 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/LandQuality")}>
+          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/landQuality")}>
             <LandPlot  />
             <span className={!isExpanded ? "hidden" : "block"}>
             Land Quality
@@ -89,7 +89,7 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/Alerts")}>
+          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/alerts")}>
             <CircleAlert />
             <span className={!isExpanded ? "hidden" : "block"}>
             Alerts
@@ -98,7 +98,7 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/Settings")}>
+          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/settings")}>
             <Settings  />
             <span className={!isExpanded ? "hidden" : "block"}>
             Settings
@@ -107,7 +107,7 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-        <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/Help")}>
+        <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/help")}>
             <CircleHelp  />
             <span className={!isExpanded ? "hidden" : "block"}>
               Help Center

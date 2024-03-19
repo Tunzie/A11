@@ -148,7 +148,7 @@ function Alerts() {
       <div id="map" className="h-400px w-full"></div>
       <div id="alertsContainer"></div>
       <a
-        href="javascript:history.back()"
+        href="#"
         className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-block"
       >
         Back
