@@ -24,8 +24,8 @@ function App() {
         <Accessibilik />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={   <Dashboard/>    } />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Dashboard><Login /></Dashboard>} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/alerts" element={<Alerts />} />
         </Routes>
       </BrowserRouter>

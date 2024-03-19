@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "accessibility-react-widget": "^1.0.4",
+    "framer-motion": "^11.0.15",
+    "lucide-react": "^0.359.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
