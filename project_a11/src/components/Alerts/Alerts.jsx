@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import L from 'leaflet';
-
-// CSS
-import './Alerts.css';
+import './Alerts.css'; // Import CSS file
 
 const Alerts = () => {
   const [map, setMap] = useState(null);
