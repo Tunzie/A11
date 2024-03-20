@@ -1,46 +1,52 @@
-/* Alerts.css */
-
 /* Alert Styles */
 .alert {
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .alert .icon {
-    margin-right: 15px;
-  }
-  
-  .alert .message {
-    font-weight: bold;
-  }
-  
-  .alert .code {
-    color: #666;
-  }
-  
-  /* Weather Icons */
-  .fa-sun {
-    color: #ffd700; /* Yellow */
-  }
-  
-  .fa-cloud-rain {
-    color: #1e90ff; /* Dodger Blue */
-  }
-  
-  .fa-snowflake {
-    color: #00bfff; /* Deep Sky Blue */
-  }
-  
-  .fa-bolt {
-    color: #ff6347; /* Tomato */
-  }
-  
-  /* Map container */
-  #map {
-    height: 400px;
-    width: 100%;
-  }
-  
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.alert .icon {
+  margin-right: 15px;
+}
+/* App.css or your custom CSS file */
+
+.map-container {
+  height: 300px;
+  width: 100%;
+  max-width: 600px; /* Limiting width to 600px */
+  margin: 0 auto; /* Center the map horizontally */
+}
+
+.map-container .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.alert .message {
+  font-weight: bold;
+}
+
+/* Weather Icons */
+.fa-sun {
+  color: #ffd700; /* Yellow */
+}
+
+.fa-cloud-rain {
+  color: #1e90ff; /* Dodger Blue */
+}
+
+.fa-snowflake {
+  color: #00bfff; /* Deep Sky Blue */
+}
+
+.fa-bolt {
+  color: #ff6347; /* Tomato */
+}
+
+/* Map container */
+#map {
+  height: 400px;
+  width: 100%;
+}
