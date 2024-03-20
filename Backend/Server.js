@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 
 app.post("/sendmail", async (req, res) => {
   const { firstName, lastName, mail, subject, info, userId } = req.body;
-
+/*
   const newContact = new Contact({
     firstName,
     lastName,
@@ -33,7 +33,7 @@ app.post("/sendmail", async (req, res) => {
   });
 
   await newContact.save();
-
+*/
   const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.SUPPORT_EMAIL, // The email you want to send to
