@@ -10,6 +10,19 @@
 .alert .icon {
   margin-right: 15px;
 }
+/* App.css or your custom CSS file */
+
+.map-container {
+  height: 300px;
+  width: 100%;
+  max-width: 600px; /* Limiting width to 600px */
+  margin: 0 auto; /* Center the map horizontally */
+}
+
+.map-container .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
 
 .alert .message {
   font-weight: bold;
