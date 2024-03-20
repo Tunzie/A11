@@ -87,7 +87,7 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/alerts")}>
+          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/Alerts")}>
             <CircleAlert />
             <span className={!isExpanded ? "hidden" : "block"}>
             Alerts
@@ -96,7 +96,7 @@ function SidePanel() {
         </div>
 
         <div className="nav-links w-full">
-          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/settings")}>
+          <button className="flex space-x-3 w-full p-2 rounded" onClick={() => handleButtonClick("/SettingsForm")}>
             <Settings  />
             <span className={!isExpanded ? "hidden" : "block"}>
             Settings

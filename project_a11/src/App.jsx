@@ -5,7 +5,7 @@ import Accessibilik from 'accessibility-react-widget';
 import Alerts from "./components/Alerts/Alerts";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Signup from "./components/Signup/Signup";
-
+import SettingsForm from "./components/Settings/SettingsForm";
 function App() {
 
   useEffect(() => {
@@ -29,7 +29,8 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Dashboard><Login /></Dashboard>} />
           <Route path="/signup" element={<Dashboard><Signup /></Dashboard>} />
-          <Route path="/alerts" element={<Dashboard><Alerts /> </Dashboard>} />
+          <Route path="/Alerts" element={<Dashboard><Alerts/> </Dashboard>} />
+          <Route path="/SettingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
         </Routes>
       </BrowserRouter>
     </div>
