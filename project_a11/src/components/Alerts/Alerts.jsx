@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import './Alerts.css';
 
 function Alerts() {
-  const alertsContainer = document.getElementById("alertsContainer");
-
   useEffect(() => {
+    const alertsContainer = document.getElementById("alertsContainer");
+
     // Function to fetch weather data based on coordinates
     function fetchWeatherData(latitude, longitude, locationName) {
       fetch(
@@ -140,19 +140,20 @@ function Alerts() {
     return () => {
       map.off("click", onMapClick);
     };
-  }, []); // Empty dependency array to run once on mount
+  }, []);
 
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-4">Weather Alerts</h1>
       <div id="map" className="h-400px w-full"></div>
       <div id="alertsContainer"></div>
-      <a
-        href="#"
+      {/* Use a button instead of a link to prevent page jumps */}
+      <button
         className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-block"
+        onClick={() => window.history.back()}
       >
         Back
-      </a>
+      </button>
     </div>
   );
 }
