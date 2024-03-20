@@ -4,6 +4,8 @@ import Login from "./components/Login/Login";
 import Accessibilik from 'accessibility-react-widget';
 import Alerts from "./components/Alerts/Alerts";
 import Dashboard from "./components/Dashboard/Dashboard";
+import Signup from "./components/Signup/Signup";
+
 function App() {
 
   useEffect(() => {
@@ -26,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Dashboard><Login /></Dashboard>} />
+          <Route path="/signup" element={<Dashboard><Signup /></Dashboard>} />
           <Route path="/alerts" element={<Dashboard><Alerts /></Dashboard>} />
         </Routes>
       </BrowserRouter>

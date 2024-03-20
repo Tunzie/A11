@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MdMail, MdLock } from "react-icons/md";
+import { Mail, Lock } from "lucide-react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { displayError } from "../../utils/loginUtil";
@@ -7,23 +7,18 @@ import { displayError } from "../../utils/loginUtil";
 
 const Login = () => {
 
- // const { setUsername } = useContext(UserContext);
+  // const { setUsername } = useContext(UserContext);
   const navigate = useNavigate();
-  let errorDisplayed = false;
+  let errorDisplayed = false; // Variable to track if error is already displayed
 
-  const validateLogin = (event) => {
+const validateLogin = (event) => {
     // Prevent the default form submission behavior
-
     event.preventDefault();
 
     // Get email and password input elements and values:
-    const emailInput = document.querySelector<HTMLInputElement>(
-      'input[name="email"]'
-    );
+    const emailInput = document.querySelector<HTMLInputElement>( 'input[name="email"]' );
     const emailValue = emailInput?.value || "";
-    const passwordInput = document.querySelector<HTMLInputElement>(
-      'input[type="password"]'
-    );
+    const passwordInput = document.querySelector<HTMLInputElement>( 'input[type="password"]' );
     const passwordValue = passwordInput?.value || "";
 
     console.log(emailValue, passwordValue);
@@ -46,7 +41,7 @@ const Login = () => {
           errorDisplayed
         );
       });*/
-  };
+};
 
   return (
     
@@ -56,14 +51,14 @@ const Login = () => {
       <form id="login-form" action="#">
         <div className="input-box relative w-full h-11 border-b-2 border-solid border-black mb-10">
           <span className="icon absolute right-2">
-            <ion-icon name="mail"></ion-icon>
+            <Mail />
           </span> 
           <input id="email-field" type="text" name="email" required className="w-full h-full border-none outline-none pl-1 pr-25 font-medium" />
           <label className="absolute top-1/2 left-1 text-base font-semibold pointer-events-none color-black">Email*</label>
         </div>
         <div className="input-box relative w-full h-11 border-b-2 border-solid border-black mb-10">
           <span className="icon absolute right-2">
-            <ion-icon name="lock-closed"></ion-icon>
+            <Lock />
           </span> 
           <input id="password-field" type="password" required className="w-full h-full border-none outline-none pl-1 pr-25 font-medium" />
           <label className="absolute top-1/2 left-1 text-base font-semibold pointer-events-none color-black ">Password*</label>

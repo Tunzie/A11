@@ -4,16 +4,10 @@
 }
 .signup-wrapper {
     background-color: #ffffff;
-    width: 430px;
-    height: 580px;
-    position: relative;
-    border: 2px;
+    width: 26.875rem;
+    height: 36.25rem;
     border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-    text-align: center;
 }
 .input-box .icon{
     font-size: 1.2em;

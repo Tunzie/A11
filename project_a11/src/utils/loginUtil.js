@@ -1,5 +1,4 @@
 
-let errorDisplayed = false; // Variable to track if error is already displayed
 
 // Display error message to user
 export function displayError(message, inputElement) {
@@ -19,12 +18,20 @@ export function displayError(message, inputElement) {
         }, 6000);
     }
 }
+
 // email validation rules
 export function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
 // Password validation rules
 export function isValidPassword(password) {  
     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     return passwordRegex.test(password);
 }
+
+// confirmed Password match rule
+export function IsPasswordsMatch(password, confirmPassword){
+    return password == confirmPassword; 
+}
+
