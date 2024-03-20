@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Wind, CircleChevronLeft, Droplet, CircleChevronRight , CircleAlert, CloudSunRain, Settings, CircleHelp, LandPlot, LayoutDashboard} from "lucide-react";
 import { motion } from "framer-motion";
-import Logo from "../../Assets/logo.png";
-import RightArrowIcon from "../../Assets/icons/rightArrow.svg";
 
 
 const variants = {
