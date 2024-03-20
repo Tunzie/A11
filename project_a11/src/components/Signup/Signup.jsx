@@ -1,7 +1,7 @@
 import React from 'react'
 import { Mail, Lock, User} from "lucide-react";
 import { IsPasswordsMatch, isValidEmail, isValidPassword, displayError } from "../../utils/loginUtil";
-import "./signup.css";
+import "./Signup.css";
 
 function Signup() {
 

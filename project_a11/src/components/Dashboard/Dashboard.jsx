@@ -13,7 +13,7 @@ const Dashboard = ({ children }) => {
 
       <div className="flex flex-1">
           <SidePanel />
-        <div className="flex-1 bg-slate-300">
+        <div className="flex-1 pl-1 pt-1 bg-slate-300">
           <Content>{children}</Content>
         </div>
       </div>
