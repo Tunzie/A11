@@ -6,7 +6,7 @@ function Home() {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-blue-600 mb-2">Air Quality</h2>
-        <Wind size={48} className="mx-auto mb-2" />
+        <Wind size={75} className="mx-auto mb-2" />
         <div className="text-center">
           <p className="text-gray-700">
             Current AQI: <span className="font-bold">65</span>
@@ -31,7 +31,7 @@ function Home() {
 
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-green-600 mb-2">Water Quality</h2>
-        <Droplet size={48} className="mx-auto mb-2" />
+        <Droplet size={75} className="mx-auto mb-2" />
         <div className="text-center">
           <p className="text-gray-700">
             pH Level: <span className="font-bold">7.2</span>
@@ -56,7 +56,7 @@ function Home() {
 
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-orange-600 mb-2">Weather Conditions</h2>
-        <CloudSunRain size={48} className="mx-auto mb-2" />
+        <CloudSunRain size={75} className="mx-auto mb-2" />
         <div className="text-center">
           <p className="text-gray-700">
             Temperature: <span className="font-bold">23°C</span>
@@ -81,7 +81,7 @@ function Home() {
 
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-brown-600 mb-2">Land Quality</h2>
-        <LandPlot size={48} className="mx-auto mb-2" />
+        <LandPlot size={75} className="mx-auto mb-2" />
         <div className="text-center">
           <p className="text-gray-700">
             Elevation: <span className="font-bold">3500 ft</span>
