@@ -14,8 +14,6 @@ const Navbar = () => {
           <div className="flex justify-start items-center">
             <button onClick={() => navigate("/")} className="flex mr-4">
             
-            <img src={Logo} alt="Logo" className="logo-div flex space-x-4 items-center w-8" />
-              
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 Eden Initiative
               </span>
