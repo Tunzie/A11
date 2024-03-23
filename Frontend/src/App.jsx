@@ -10,6 +10,10 @@ import Home from "./components/Dashboard/Home";
 import SettingsForm from "./components/Settings/SettingsForm";
 function App() {
 
+  const [username, setUsername] = useState('');
+
+
+
   useEffect(() => {
     const script = document.createElement("script");
 
@@ -22,6 +26,8 @@ function App() {
       document.body.removeChild(script);
     };
   }, []);
+
+
 
   return (
     <div className="App">

@@ -24,7 +24,7 @@ const SidePanel = () => {
       animate={isExpanded ? "expanded" : "nonexpanded"}
       variants={variants}
       className={
-        "py-10 h-screen flex flex-col border border-r-1 bg-[#FDFDFD] relative" +
+        "py-10 h-screen flex-col border border-r-1 bg-[#FDFDFD] relative" +
         (isExpanded ? " px-4" : " px-4")
       }
     >

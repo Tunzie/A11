@@ -55,7 +55,7 @@ const ContactUs = () => {
         className="mb-4 font-light text-left  
                           text-gray-500 sm:text-xl"
       >
-        Got a issue? Want to send feedback? Need details about our Website? Let
+        Got a issue? Want to send feedback? Need details about our Service? Let
         us know, so we can help you as soon as possible.
       </p>
       <form onSubmit={handleSubmit}>
@@ -112,7 +112,7 @@ const ContactUs = () => {
             className="shadow-sm bg-gray-50 border  
                                       border-gray-300 text-gray-900  
                                       text-sm rounded-lg block w-full p-2.5"
-            placeholder="abc@geeksforgeeks.org"
+            placeholder="Enter Email"
             onChange={handleChange}
             required
           />

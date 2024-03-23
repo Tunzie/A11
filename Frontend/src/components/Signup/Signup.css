@@ -8,6 +8,10 @@
     height: 36.25rem;
     border-radius: 20px;
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+    position: fixed; /* Position fixed to center it relative to the viewport */
+    top: 20%; /* Move the top of the element to the middle of the viewport */
+    left: 50%; /* Move the left of the element to the middle of the viewport */
+    transform: translate(-50%, 20%); /* Center the element horizontally and vertically */
 }
 .input-box .icon{
     font-size: 1.2em;
