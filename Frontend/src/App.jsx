@@ -8,7 +8,8 @@ import Signup from "./components/Signup/Signup";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Home from "./components/Dashboard/Home";
 import SettingsForm from "./components/Settings/SettingsForm";
-import landQuality from "./components/LandQuality/landQuality";
+import landQualityPage from "./components/LandQuality/landQualityPage";
+
 function App() {
 
   const [username, setUsername] = useState('');
@@ -42,7 +43,7 @@ function App() {
           <Route path="/contactus" element={<Dashboard><ContactUs /></Dashboard>} />
           <Route path="/Alerts" element={<Dashboard><Alerts/> </Dashboard>} />
           <Route path="/SettingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
-          <Route path="/landQuality" element={<Dashboard><landQuality /></Dashboard>} />
+          <Route path="/landQualityPage" element={<Dashboard><landQualityPage /></Dashboard>} />
         </Routes>
       </BrowserRouter>
     </div>
