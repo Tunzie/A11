@@ -64,8 +64,8 @@ const SidePanel = () => {
           <CloudSunRain />
           {isExpanded && <span className="pl-2">Weather Conditions</span>}
         </button>
-page
-        <button className={"nav-links flex w-full p-3 rounded " + (location.pathname === "/landQualityPage" ? "bg-[#FF8C8C] text-white" : "")} onClick={() => handleButtonClick("/landQuality")}>
+
+        <button className={"nav-links flex w-full p-3 rounded " + (location.pathname === "/landQualityPage" ? "bg-[#FF8C8C] text-white" : "")} onClick={() => handleButtonClick("/landQualityPage")}>
           <LandPlot />
           {isExpanded && <span className="pl-2">Land Quality</span>}
         </button>
