@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import L from 'leaflet';
 import Chart from 'chart.js/auto';
 
-const landQualityPage = () => {
+const landQuality = () => {
   const [map, setMap] = useState(null);
   const [marker, setMarker] = useState(null);
   const [myChart1, setMyChart1] = useState(null);
@@ -143,4 +143,4 @@ const landQualityPage = () => {
   );
 };
 
-export default landQualityPage;
+export default landQuality;
