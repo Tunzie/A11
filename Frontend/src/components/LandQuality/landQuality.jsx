@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import L from 'leaflet';
 import "./LandQuality.css";
 import Chart from 'chart.js/auto';
+import Navbar from "./Navbar";
+import SidePanel from "./SidePanel";
+import Content from "./Content";
+import Footer from "./Footer";
 
-const landQuality = () => {
+
+const landQuality = ({ children }) => {
   const [map, setMap] = useState(null);
   const [marker, setMarker] = useState(null);
   const [myChart1, setMyChart1] = useState(null);
@@ -116,30 +121,39 @@ const landQuality = () => {
   const [elevation, setElevation] = useState(0);
 
   return (
-    <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div className="flex-col">
-        <div className="flexwindow map-window mb-4">
-          <h3 className="text-xl font-semibold mb-2">Choose Location</h3>
-          <div id="map" className="w-full h-64"></div>
-        </div>
-        <div className="window status-elevation-window mb-4">
-          <p id="status">Status: {status}</p>
-          <p id="elevation">Elevation: {elevation} meters</p>
-          <div id="alert-container">
-            <p id="alert">Alert: {alertMessage}</p>
+    <div>
+      <Navbar />
+      <div className="flex">
+        <SidePanel />
+        <Content>
+          <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex-col">
+              <div className="flexwindow map-window mb-4">
+                <h3 className="text-xl font-semibold mb-2">Choose Location</h3>
+                <div id="map" className="w-full h-64"></div>
+              </div>
+              <div className="window status-elevation-window mb-4">
+                <p id="status">Status: {status}</p>
+                <p id="elevation">Elevation: {elevation} meters</p>
+                <div id="alert-container">
+                  <p id="alert">Alert: {alertMessage}</p>
+                </div>
+              </div>
+              <div className="window charts-window mb-4">
+                <div className="chart-labels">
+                  <div className="chart-label">Soil Temp</div>
+                  <div className="chart-label">Soil Moist</div>
+                </div>
+                <div className="chart-container">
+                  <canvas id="line-chart1" width="400" height="100"></canvas>
+                  <canvas id="line-chart2" width="400" height="100"></canvas>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="window charts-window mb-4">
-          <div className="chart-labels">
-            <div className="chart-label">Soil Temp</div>
-            <div className="chart-label">Soil Moist</div>
-          </div>
-          <div className="chart-container">
-            <canvas id="line-chart1" width="400" height="100"></canvas>
-            <canvas id="line-chart2" width="400" height="100"></canvas>
-          </div>
-        </div>
+        </Content>
       </div>
+      <Footer />
     </div>
   );
 };
