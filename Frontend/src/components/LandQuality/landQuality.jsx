@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import L from 'leaflet';
 import "./LandQuality.css";
-import Chart from 'chart.js/auto';
-import Navbar from "./Navbar";
-import SidePanel from "./SidePanel";
-import Content from "./Content";
-import Footer from "./Footer";
+//import Chart from 'chart.js/auto';
 
 
-const landQuality = () => {
+const LandQuality = () => {
   const [map, setMap] = useState(null);
   const [marker, setMarker] = useState(null);
   const [myChart1, setMyChart1] = useState(null);
@@ -76,7 +72,8 @@ const landQuality = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
           const userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
-          setMap(L.map('map').setView(userLocation, 15));
+          var map = L.map('map').setView([51.505, -0.09], 13);
+          setMap(map);
           alert(`Your location: ${userLocation.lat}, ${userLocation.lng}`);
         }, function () {
           alert('Error: The Geolocation service failed.');
@@ -108,10 +105,13 @@ const landQuality = () => {
       setElevation(elevation);
     };
 
-    getLocation();
+   getLocation();
 
     return () => {
-      if (map) map.off('click', handleMapClick);
+      if (map) {
+        map.remove();
+        setMap(null);
+      }
     };
 
   }, []);
@@ -120,12 +120,11 @@ const landQuality = () => {
   const [alertMessage, setAlertMessage] = useState('');
   const [elevation, setElevation] = useState(0);
 
+
+
+  
   return (
-    <div>
-      <Navbar />
       <div className="flex">
-        <SidePanel />
-        <Content>
           <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex-col">
               <div className="flexwindow map-window mb-4">
@@ -151,11 +150,7 @@ const landQuality = () => {
               </div>
             </div>
           </div>
-        </Content>
       </div>
-      <Footer />
-    </div>
   );
 };
-
-export default landQuality;
+export default LandQuality;
