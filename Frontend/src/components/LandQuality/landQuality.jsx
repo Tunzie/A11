@@ -8,7 +8,7 @@ import Content from "./Content";
 import Footer from "./Footer";
 
 
-const landQuality = ({ children }) => {
+const landQuality = () => {
   const [map, setMap] = useState(null);
   const [marker, setMarker] = useState(null);
   const [myChart1, setMyChart1] = useState(null);

@@ -43,7 +43,7 @@ function App() {
           <Route path="/contactus" element={<Dashboard><ContactUs /></Dashboard>} />
           <Route path="/Alerts" element={<Dashboard><Alerts/> </Dashboard>} />
           <Route path="/SettingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
-          <Route path="/landQuality" element={<landQuality/>} />
+          <Route exact path="/landQuality" element={<landQuality/>} />
         </Routes>
       </BrowserRouter>
     </div>
