@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import L from 'leaflet';
+import "./LandQuality.css";
 import Chart from 'chart.js/auto';
 
 const landQuality = () => {
