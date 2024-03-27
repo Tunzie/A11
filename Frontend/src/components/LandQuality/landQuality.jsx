@@ -131,7 +131,7 @@ const LandQuality = () => {
       <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="flex-col">
           <div className="flexwindow map-window mb-4">
-            <h3 className="text-xl font-semibold mb-2">Choose Location</h3>
+            <h3 className="text-xl font-semibold mb-2">Choose Location:</h3>
             <MapContainer center={[48.8566, 2.3522]} zoom={13} ref={mapRef} style={{height: "40vh", width: "165vh"}}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
