@@ -9,6 +9,7 @@ import ContactUs from "./components/ContactUs/ContactUs";
 import Home from "./components/Dashboard/Home";
 import SettingsForm from "./components/Settings/SettingsForm";
 import LandQuality from "./components/LandQuality/LandQuality";
+import WaterQuality from "./components/WaterQuality/WaterQuality";
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/contactus" element={<Dashboard><ContactUs /></Dashboard>} />
           <Route path="/alerts" element={<Dashboard><Alerts/> </Dashboard>} />
           <Route path="/landQuality" element={<Dashboard><LandQuality/> </Dashboard>} />
+          <Route path="/WaterQuality" element={<Dashboard><WaterQuality/> </Dashboard>} />
           <Route path="/settingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
         </Routes>
       </BrowserRouter>

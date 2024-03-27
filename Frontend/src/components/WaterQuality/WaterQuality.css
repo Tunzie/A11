@@ -1,0 +1,143 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.water-quality-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.map-container {
+  background-color: rgb(164, 203, 223);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  min-height: 200px;
+}
+
+.data-container {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 30px 10px 15px 10px;
+}
+
+.chart-container {
+  flex-grow: 1;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container canvas {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    margin-bottom: 20px;
+  }
+}
+
+.date-selection-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f7f7f7;
+  width: 30%;
+}
+
+.status-window, .alert-window {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 5px 0;
+  background-color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#alert {
+  background-color: #ffa500;
+  color: white;
+  text-align: left;
+  display: inline-block;
+}
+
+.update-charts-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-left: 5px;
+}
+
+.update-charts-btn:hover {
+  background-color: #45a049;
+}
+
+.date-selection-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold;
+  
+}
+
+.date-status-alert-index-container {
+  display: flex;
+  justify-content: space-between; /* Adjusts space distribution */
+  align-items: center; /* Vertically aligns items in the center */
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.status-window, .alert-window, .chartIndex-window {
+  flex-grow: 1; /* Allows each child to grow evenly */
+  text-align: center; /* Centers the text inside each div */
+  padding: 0 10px; /* Adds padding on the left and right */
+}
+
+.status-alert-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  background-color: #f7f7f7;
+  width: 30%;
+  margin-right: 10px;
+  width: 20%;
+  
+}
+
