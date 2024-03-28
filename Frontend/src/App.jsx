@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Accessibilik from 'accessibility-react-widget';
-import Alerts from "./components/Alerts/Alerts";
+import WeatherAlerts from "./components/Alerts/Alerts";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Signup from "./components/Signup/Signup";
 import ContactUs from "./components/ContactUs/ContactUs";
@@ -40,9 +40,8 @@ function App() {
           <Route path="/" element={<Dashboard><Home /></Dashboard>} />
           <Route path="/login" element={<Dashboard><Login /></Dashboard>} />
           <Route path="/signup" element={<Dashboard><Signup /></Dashboard>} />
-          <Route path="/alerts" element={<Dashboard><Alerts /></Dashboard>} />
+          <Route path="/Alerts" element={<Dashboard><WeatherAlerts /></Dashboard>} />
           <Route path="/contactus" element={<Dashboard><ContactUs /></Dashboard>} />
-          <Route path="/alerts" element={<Dashboard><Alerts/> </Dashboard>} />
           <Route path="/landQuality" element={<Dashboard><LandQuality/> </Dashboard>} />
           <Route path="/WaterQuality" element={<Dashboard><WaterQuality/> </Dashboard>} />
           <Route path="/settingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
