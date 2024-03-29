@@ -44,7 +44,7 @@ function App() {
           <Route path="/contactus" element={<Dashboard><ContactUs /></Dashboard>} />
           <Route path="/landQuality" element={<Dashboard><LandQuality/> </Dashboard>} />
           <Route path="/WaterQuality" element={<Dashboard><WaterQuality/> </Dashboard>} />
-          <Route path="/settingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
+          <Route path="/settings" element={<Dashboard><SettingsForm/> </Dashboard>} />
         </Routes>
       </BrowserRouter>
     </div>
