@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Signup from "./components/Signup/Signup";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Home from "./components/Dashboard/Home";
-import SettingsForm from "./components/Settings/SettingsForm";
+import Settings from "./components/Settings/Settings";
 import LandQuality from "./components/LandQuality/LandQuality";
 import WaterQuality from "./components/WaterQuality/WaterQuality";
 import HelpCenter from "./components/HelpCenter/HelpCenter";
@@ -46,10 +46,9 @@ function App() {
           <Route path="/contactus" element={<Dashboard><ContactUs /></Dashboard>} />
           <Route path="/landQuality" element={<Dashboard><LandQuality/> </Dashboard>} />
           <Route path="/WaterQuality" element={<Dashboard><WaterQuality/> </Dashboard>} />
-          <Route path="/settingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
           <Route path="/helpcenter" element={<Dashboard><HelpCenter/> </Dashboard>} />
           <Route path="/airQuality" element={<Dashboard><AirQuality/> </Dashboard>} />
-          <Route path="/settings" element={<Dashboard><SettingsForm/> </Dashboard>} />
+          <Route path="/settings" element={<Dashboard><Settings/> </Dashboard>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -51,7 +51,6 @@ const SettingsForm = () => {
         </div>
         <button type="submit" className="button-style">Save Settings</button>
       </form>
-      <a href="javascript:history.back()" className="block mt-4 button-style-secondary">Back</a>
     </div>
   );
 };
