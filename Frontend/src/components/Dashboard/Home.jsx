@@ -2,6 +2,7 @@ import React from 'react';
 import { Wind, Droplet, CloudSunRain, LandPlot } from 'lucide-react';
 
 function Home() {
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
       <div className="bg-white p-4 rounded-lg shadow-lg">
@@ -34,18 +35,15 @@ function Home() {
         <Droplet size={75} className="mx-auto mb-2" />
         <div className="text-center">
           <p className="text-gray-700">
-            pH Level: <span className="font-bold">7.2</span>
+            River Discharge: <span className="font-bold">0.4</span>
           </p>
           <p className="text-gray-700">
-            Status: <span className="font-bold text-yellow-600">Moderate</span>
+          Mean River Discharge: <span className="font-bold">0.3</span>
           </p>
           <p className="text-gray-700">
-            Turbidity: <span className="font-bold">Low</span>
+            Status: <span className="font-bold text-yellow-600">No Flood Warning</span>
           </p>
-          <p className="text-gray-700">
-            Contaminants: <span className="font-bold">Lead, Chlorine</span>
-          </p>
-        </div>
+         </div>
         <div className="flex justify-between items-center mt-4">
           <div className="text-gray-600">
             <i className="fas fa-chart-line mr-1"></i>
@@ -84,16 +82,17 @@ function Home() {
         <LandPlot size={75} className="mx-auto mb-2" />
         <div className="text-center">
           <p className="text-gray-700">
-            Elevation: <span className="font-bold">3500 ft</span>
+            Elevation: <span className="font-bold">224 m</span>
+          </p>
+  
+          <p className="text-gray-700">
+            Soil Moisture: <span className="font-bold">0.4</span>
           </p>
           <p className="text-gray-700">
-            Status: <span className="font-bold text-red-600">High Risk</span>
+         Soil Temp: <span className="font-bold">18 C</span>
           </p>
           <p className="text-gray-700">
-            Soil Type: <span className="font-bold">Clay</span>
-          </p>
-          <p className="text-gray-700">
-            Vegetation: <span className="font-bold">Sparse</span>
+          Status: <span className="font-bold text-red-600">Average soil conditions</span>
           </p>
         </div>
         <div className="flex justify-between items-center mt-4">

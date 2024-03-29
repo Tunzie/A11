@@ -160,27 +160,37 @@ const WaterQuality = () => {
                 <div className="date-status-alert-index-container">
 
                     <div className="status-alert-container">
-                        <p id="locationName">
-                            <span role="img" aria-label="Location">📍</span>
-                            Location: {locationName}
-                        </p>
-                        <p id="status">
-                            <span role="img" aria-label="Discharge">🌊</span> {/* Wave symbol to represent water flow or discharge */}
-                            State: {status}
-                        </p>
-                        <p id="alert">
-                            <span role="img" aria-label="Alert">{alertMessage.startsWith("Alert:") ? "🚨" : "🔍"}</span> {/* Alarm symbol for alerts and magnifying glass for normal checks */}
-                            {alertMessage}
-                        </p>
+                        <div className="location-box">
+                            <p id="locationName">
+                                <span role="img" aria-label="Location">📍</span>
+                                Location: {locationName}
+                            </p>
+                        </div>
+                        <div className="status-box">
+                            <p id="status">
+                                <span role="img" aria-label="Discharge">🌊</span>
+                                Status: {status}
+                            </p>
+                        </div>
+                        <div className="alert-box">
+                            <p id="alert">
+                                <span role="img" aria-label="Alert">{alertMessage.startsWith("Alert:") ? "🚨" : "🔍"}</span>
+                                 Alert: {alertMessage}
+                            </p>
+                        </div>
                     </div>
 
+
                     <div className="date-selection-container">
+                    <label htmlFor="start-date-picker">Choose time period:</label>
+                    <label htmlFor="start-date-picker">Start Date:</label>
                         <DatePicker
                             selected={startDate}
                             onChange={handleStartDateChange}
                             maxDate={new Date()}
                             dateFormat="dd/MM/yyyy"
                         />
+                        <label htmlFor="start-date-picker">End Date:</label>
                         <DatePicker
                             selected={endDate}
                             onChange={handleEndDateChange}

@@ -20,8 +20,8 @@ body, html {
 
 .map-container {
   background-color: rgb(164, 203, 223);
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 5px;
+  margin-bottom: 5px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-left: 10px;
@@ -39,7 +39,7 @@ body, html {
 .chart-container {
   flex-grow: 1;
   background-color: white;
-  padding: 15px;
+  padding: 5px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -86,24 +86,9 @@ body, html {
   justify-content: space-between;
   align-items: start;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   flex-wrap: wrap;
 }
-
-.status-window, .alert-window {
-  font-size: 1.2em;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0;
-  padding: 5px 0;
-  background-color: white;
-  padding: 8px 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
 
 #alert {
   background-color: #ffa500;
@@ -119,28 +104,42 @@ body, html {
   font-weight: bold;
 }
 
-.status-alert-container, .date-selection-container, .chartIndex-window {
-  margin: 5px;
-  flex-basis: calc(33% - 10px);
-  max-width: calc(33% - 10px);
-  box-sizing: border-box;
-}
 
 .status-alert-container {
   padding: 15px;
   background-color: #f7f7f7;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  
+  margin: 5px;
+  flex-basis: calc(25% - 10px);
+  max-width: calc(25% - 10px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Adjust this value as needed for spacing */
+  }
+
+
+.date-selection-container {
+  margin: 5px;
+  flex-basis: calc(25% - 10px);
+  max-width: calc(25% - 10px);
+  box-sizing: border-box;
 }
 
+
 .chartIndex-window {
+  margin: 5px;
+  flex-basis: calc(50% - 10px);
+  max-width: calc(50% - 10px);
+  box-sizing: border-box;
   background-color: #f2f2f2;
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
 
 .chart-index-title {
   color: #333;
@@ -160,7 +159,6 @@ body, html {
 }
 
 .chartIndex-window span[role="img"] {
-  margin-right: 10px;
   font-size: 20px;
 }
 
