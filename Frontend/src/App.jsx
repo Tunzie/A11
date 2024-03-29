@@ -49,6 +49,7 @@ function App() {
           <Route path="/settingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
           <Route path="/helpcenter" element={<Dashboard><HelpCenter/> </Dashboard>} />
           <Route path="/airQuality" element={<Dashboard><AirQuality/> </Dashboard>} />
+          <Route path="/settings" element={<Dashboard><SettingsForm/> </Dashboard>} />
         </Routes>
       </BrowserRouter>
     </div>

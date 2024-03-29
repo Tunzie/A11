@@ -17,6 +17,7 @@ const WaterQuality = () => {
     const [endDate, setEndDate] = useState(new Date());
     const [status, setStatus] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
+    const [locationName, setLocationName] = useState('');
 
     useEffect(() => {
         const getLocation = () => {
@@ -52,7 +53,21 @@ const WaterQuality = () => {
         const newMarker = L.marker(clickedLocation).addTo(map);
         markersRef.current.push(newMarker);
         fetchFloodData(clickedLocation.lat, clickedLocation.lng, startDate, endDate);
+        fetchLocationName(clickedLocation.lat, clickedLocation.lng);
     };
+
+    const fetchLocationName = async (lat, lng) => {
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+            const data = await response.json();
+            setLocationName(data.display_name);
+        } catch (error) {
+            console.error('Error fetching location name:', error);
+            setLocationName('Unknown Location');
+        }
+    };
+
+
 
     const handleStartDateChange = (date) => {
         setStartDate(date);
@@ -145,17 +160,37 @@ const WaterQuality = () => {
                 <div className="date-status-alert-index-container">
 
                     <div className="status-alert-container">
-                        <p id="status">Status: {status}</p>
-                        <p id="alert">{alertMessage}</p>
+                        <div className="location-box">
+                            <p id="locationName">
+                                <span role="img" aria-label="Location">📍</span>
+                                Location: {locationName}
+                            </p>
+                        </div>
+                        <div className="status-box">
+                            <p id="status">
+                                <span role="img" aria-label="Discharge">🌊</span>
+                                Status: {status}
+                            </p>
+                        </div>
+                        <div className="alert-box">
+                            <p id="alert">
+                                <span role="img" aria-label="Alert">{alertMessage.startsWith("Alert:") ? "🚨" : "🔍"}</span>
+                                 Alert: {alertMessage}
+                            </p>
+                        </div>
                     </div>
 
+
                     <div className="date-selection-container">
+                    <label htmlFor="start-date-picker">Choose time period:</label>
+                    <label htmlFor="start-date-picker">Start Date:</label>
                         <DatePicker
                             selected={startDate}
                             onChange={handleStartDateChange}
                             maxDate={new Date()}
                             dateFormat="dd/MM/yyyy"
                         />
+                        <label htmlFor="start-date-picker">End Date:</label>
                         <DatePicker
                             selected={endDate}
                             onChange={handleEndDateChange}
