@@ -10,6 +10,8 @@ import Home from "./components/Dashboard/Home";
 import SettingsForm from "./components/Settings/SettingsForm";
 import LandQuality from "./components/LandQuality/LandQuality";
 import WaterQuality from "./components/WaterQuality/WaterQuality";
+import HelpCenter from "./components/HelpCenter/HelpCenter";
+import AirQuality from "./components/AirQuality/AirQuality";
 
 function App() {
 
@@ -45,6 +47,8 @@ function App() {
           <Route path="/landQuality" element={<Dashboard><LandQuality/> </Dashboard>} />
           <Route path="/WaterQuality" element={<Dashboard><WaterQuality/> </Dashboard>} />
           <Route path="/settingsForm" element={<Dashboard><SettingsForm/> </Dashboard>} />
+          <Route path="/helpcenter" element={<Dashboard><HelpCenter/> </Dashboard>} />
+          <Route path="/airQuality" element={<Dashboard><AirQuality/> </Dashboard>} />
         </Routes>
       </BrowserRouter>
     </div>

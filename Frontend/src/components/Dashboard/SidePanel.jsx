@@ -80,7 +80,7 @@ const SidePanel = () => {
           {isExpanded && <span className="pl-2">Settings</span>}
         </button>
 
-        <button className={"nav-links flex w-full p-3 rounded " + (location.pathname === "/help" ? "bg-[#FF8C8C] text-white" : "")} onClick={() => handleButtonClick("/help")}>
+        <button className={"nav-links flex w-full p-3 rounded " + (location.pathname === "/helpcenter" ? "bg-[#FF8C8C] text-white" : "")} onClick={() => handleButtonClick("/helpcenter")}>
           <CircleHelp />
           {isExpanded && <span className="pl-2">Help Center</span>}
         </button>
