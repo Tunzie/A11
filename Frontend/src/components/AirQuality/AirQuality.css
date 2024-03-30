@@ -1,0 +1,83 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.window {
+  background-color: rgb(164, 203, 223);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+}
+
+.charts-window {
+  width: 98%;
+  display: flex;
+  flex-direction: column; /* Stack the chart containers */
+  align-items: center; /* Stretch children to fill the width */
+  margin-bottom: 15px; /* Margin between chart windows */
+  margin-top: 30px;
+}
+
+.chart-container {
+  flex-grow: 1; /* Grow to fill the space */
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  height: auto; /* Adjust height as needed */
+}
+
+.chart-container canvas {
+  width: 100%; /* Full width of its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+@media (max-width: 768px) {
+  .chart-container {
+    max-width: 100%; /* Full width on smaller screens */
+    margin-bottom: 20px;
+  }
+}
+
+.filterbar {
+  display: flex;
+  padding: 3px;
+  width: 50%;
+  height: 50%;
+}
+
+
+.container {
+  width: 85%; /* Adjust content container width */
+  padding: 20px;
+}
+
+canvas {
+  background-color: white;
+  border-radius: 10px;
+}
+h1 {
+  font-size: xx-large;
+}
+button {
+  border-radius: 50px;
+  font-size: x-large;
+  padding: 1px;
+  margin: 2px;
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+}

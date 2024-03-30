@@ -1,0 +1,162 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex-grow: 1;
+ 
+}
+
+.window {
+  background-color: rgb(164, 203, 223);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+}
+
+.map-window {
+  min-height: 200px; /* Ensures the map has adequate space */
+  margin-left: 10px;
+}
+
+.charts-window {
+  width: 98%;
+  display: flex;
+  flex-direction: column; /* Stack the chart containers */
+  align-items: stretch; /* Stretch children to fill the width */
+  margin-bottom: 15px; /* Margin between chart windows */
+  margin-top: 30px;
+}
+
+.chart-container {
+  flex-grow: 1; /* Grow to fill the space */
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Adjust height as needed */
+}
+
+.chart-container canvas {
+  width: 100%; /* Full width of its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+@media (max-width: 768px) {
+  .chart-container {
+    max-width: 100%; /* Full width on smaller screens */
+    margin-bottom: 20px;
+  }
+}
+
+.status-elevation-window {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased spacing between items */
+  padding: 15px;
+  background-color: #f7f7f7; /* Light grey background for the whole window */
+  
+}
+
+.status-item {
+  font-size: 1.2em; /* Larger font size for better readability */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.status-icon {
+  font-size: 1.5em;
+}
+
+
+#status, #elevation, #alert {
+    margin: 0;
+  padding: 5px 0;
+}
+
+
+
+#alert {
+  background-color: #ffa500;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-align: left;
+  display: inline-block; /* Makes the background size fit the content */
+}
+
+.update-charts-btn {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Top and bottom padding 10px, left and right 20px */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Inline block display */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin around the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  margin-left: 5px;
+ 
+}
+
+.update-charts-btn:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+
+.date-selection-title {
+  font-size: 1.2em;
+  margin-bottom: 10px; /* Spacing between the title and date pickers */
+  color: #333; /* Optionally set the color */
+  font-weight: bold; /* Bold for emphasis */
+}
+
+
+.chart-index-window {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-index-title {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.chart-index-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.chart-index-icon {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
