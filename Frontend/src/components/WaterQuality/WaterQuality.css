@@ -78,7 +78,7 @@ html {
 .date-status-alert-index-container {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   padding: 15px;
   margin-bottom: 5px;
   flex-wrap: wrap;

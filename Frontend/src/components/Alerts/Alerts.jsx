@@ -123,7 +123,6 @@ const WeatherAlerts = () => {
   };
  
   // Function to get icon class based on weather message
- 
 const getIconClass = (weatherMessage) => {
   if (weatherMessage.includes("Clear sky") || weatherMessage.includes("Mainly clear")) {
     return "fas fa-sun";
@@ -161,14 +160,6 @@ return (
         </div>
       )}
     </div>
- 
-    {/* Back Button */}
-    <a
-      href="javascript:history.back()"
-      className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-block"
-    >
-      Back
-    </a>
   </div>
 );
 };

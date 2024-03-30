@@ -4,6 +4,7 @@ import Login from "./components/Login/Login";
 import Accessibilik from 'accessibility-react-widget';
 import WeatherAlerts from "./components/Alerts/Alerts";
 import Dashboard from "./components/Dashboard/Dashboard";
+import {UserContext} from './components/Context/UserContext';
 import Signup from "./components/Signup/Signup";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Home from "./components/Dashboard/Home";
@@ -22,7 +23,7 @@ function App() {
   useEffect(() => {
     const script = document.createElement("script");
 
-    script.src = "https://buttons.github.io/buttons.js";
+    
     script.async = true;
 
     document.body.appendChild(script);
@@ -35,6 +36,7 @@ function App() {
 
 
   return (
+    <UserContext.Provider value={{username, setUsername}}>
     <div className="App">
         <Accessibilik />
       <BrowserRouter>
@@ -52,6 +54,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </UserContext.Provider>
   );
 }
 

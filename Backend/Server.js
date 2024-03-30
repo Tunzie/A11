@@ -21,8 +21,9 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/sendmail", async (req, res) => {
+  console.log(req.body);
   const { firstName, lastName, mail, subject, info, userId } = req.body;
-/*
+
   const newContact = new Contact({
     firstName,
     lastName,
@@ -33,7 +34,7 @@ app.post("/sendmail", async (req, res) => {
   });
 
   await newContact.save();
-*/
+
   const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.SUPPORT_EMAIL, // The email you want to send to
@@ -52,6 +53,38 @@ app.post("/sendmail", async (req, res) => {
   });
 });
 
+app.post('/register', async (req, res) => {
+  console.log(req.body);
+  const { email, password } = req.body;
+
+  const newUser = new User({
+      email,
+      password
+  });
+
+  await newUser.save();
+
+  res.status(200).send('User successfully registered');
+});
+
+app.post('/login', async (req, res) => {
+  console.log(req.body.email);
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    console.log(user);
+    if (user && user.password === req.body.password) {
+      res.status(200).json({ userId: user._id.toString() });
+    } else {
+      res.status(401).send('Invalid credentials');
+    }
+  } catch (error) {
+    console.error('Error occurred:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", true);
@@ -60,7 +93,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
   );
-  next(createError(404));
+  next("Server use Header Error");
 });
 
 const PORT = process.env.PORT || 3004;

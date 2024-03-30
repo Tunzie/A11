@@ -18,9 +18,9 @@ const ContactSchema = new mongoose.Schema({
     },
     userId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'A11Users',
+        ref: 'a11users',
         required: true
     }
 });
 
-module.exports = mongoose.model('A11Contact', ContactSchema);
+module.exports = mongoose.model('a11contacts', ContactSchema);

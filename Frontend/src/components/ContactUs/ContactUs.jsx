@@ -1,9 +1,15 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import {baseurl} from "../../config";
 
 
 const ContactUs = () => {
+  const emailRef = useRef();
+  const firstNameRef = useRef();
+  const lastNameRef = useRef()
+  const messageRef = useRef()
+  const subjectRef = useRef()
+  const username = localStorage.getItem("username");
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -21,6 +27,7 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const userId = localStorage.getItem("userID");
     const { firstName, lastName, email, subject, message } = formData; // Destructure values from formData state
     const requestOptions = {
       method: "POST",
@@ -31,6 +38,7 @@ const ContactUs = () => {
         mail: email, // Use email instead of mail
         subject: subject,
         info: message, // Use message instead of info
+        userId: userId,
       }),
     };
     fetch(`${baseurl}/sendmail`, requestOptions)
@@ -69,6 +77,7 @@ const ContactUs = () => {
               First Name
             </label>
             <input
+              ref={firstNameRef}
               type="text"
               name="firstName" // Add name attribute
               className="shadow-sm bg-gray-50 border 
@@ -88,6 +97,7 @@ const ContactUs = () => {
               Last Name
             </label>
             <input
+              ref={lastNameRef}
               type="text"
               name="lastName" 
               className="shadow-sm bg-gray-50 border  
@@ -101,12 +111,12 @@ const ContactUs = () => {
         <div>
           <label
             htmlFor="email"
-            className="block my-2 text-left text-sm  
-                                      font-medium text-gray-900"
+            className="block my-2 text-left text-sm font-medium text-gray-900"
           >
             Your email
           </label>
           <input
+            ref={emailRef}
             type="email"
             name="email"
             className="shadow-sm bg-gray-50 border  
@@ -126,6 +136,7 @@ const ContactUs = () => {
             Subject
           </label>
           <input
+            ref={subjectRef}
             type="text"
             name="subject" 
             className="block p-3 w-full text-sm  
@@ -145,6 +156,7 @@ const ContactUs = () => {
             Your message
           </label>
           <textarea
+            ref={messageRef}
             rows="6"
             name="message"
             className="block p-2.5 w-full text-sm  

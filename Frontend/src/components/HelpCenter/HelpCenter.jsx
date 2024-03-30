@@ -7,26 +7,29 @@ function HelpCenter() {
         Help Center
       </h2>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-        Got a issue? Want to send feedback? Need details about our Service? Let
-        us know, so we can help you as soon as possible.
+      This is a web application for Environmental Monitoring Dashboard. The app allows users access to a dashboard that 
+      displays real-time environmental data like air quality, water quality, and weather conditions from various sensors or APIs
+      </p>
+      <h1 className="mb-4 text-2xl font-extrabold text-center text-gray-900">
+      Main Features:
+      </h1>
+      <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
+      Air Quality:
       </p>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-         ds
+      Water Quality:
       </p>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-         ds
+      Land Quality:
       </p>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-         ds
+      Weather Conditions:
       </p>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-         ds
+      Alerts:
       </p>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-         ds
-      </p>
-      <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-         ds
+      User Authentication: Secure user authentication system to ensure data privacy and protection.
       </p>
     </div>
   );

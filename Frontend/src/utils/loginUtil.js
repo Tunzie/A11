@@ -1,14 +1,13 @@
 
-
 // Display error message to user
-export function displayError(message, inputElement) {
+export function displayError(message, inputElement,errorDisplayed) {
     if (!errorDisplayed) {
         var errorContainer = document.createElement('div');
         errorContainer.classList.add('error-messages');
         errorContainer.textContent = message;
         errorContainer.style.color = 'red';
-        errorDisplayed = true;
-        var parentContainer = inputElement.parentElement;
+
+        var parentContainer = inputElement.current.parentElement; // Access current property of the ref
         parentContainer.appendChild(errorContainer);
 
         // Automatically remove the error message after 6 seconds
@@ -19,6 +18,8 @@ export function displayError(message, inputElement) {
     }
 }
 
+
+
 // email validation rules
 export function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -28,10 +29,5 @@ export function isValidEmail(email) {
 export function isValidPassword(password) {  
     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     return passwordRegex.test(password);
-}
-
-// confirmed Password match rule
-export function IsPasswordsMatch(password, confirmPassword){
-    return password == confirmPassword; 
 }
 

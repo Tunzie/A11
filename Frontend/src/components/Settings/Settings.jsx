@@ -1,7 +1,8 @@
 import React from 'react';
-import './Settings.css'; // Import your CSS file
+import './Settings.css'; 
 
-const SettingsForm = () => {
+const Settings = () => {
+  
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Environmental Dashboard Settings</h1>
@@ -55,4 +56,4 @@ const SettingsForm = () => {
   );
 };
 
-export default SettingsForm;
+export default Settings;

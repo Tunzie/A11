@@ -1,47 +1,48 @@
-import React from "react";
+import React, { useContext, useRef} from "react";
 import { Mail, Lock, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { IsPasswordsMatch, isValidEmail, isValidPassword, displayError} from "../../utils/loginUtil";
+import { displayError,isValidEmail } from "../../utils/loginUtil";
 import "./Signup.css";
+import axios from "axios";
+import {baseurl} from "../../config";
+import { UserContext } from "../Context/UserContext"; // import the context
 
 function Signup() {
+
+  const { setUsername } = useContext(UserContext);
   const navigate = useNavigate();
   let errorDisplayed = false; // Variable to track if error is already displayed
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const fullNameRef = useRef();
+  const confirmPassRef = useRef();
+
 
   // handle sign in form submit event
   const validateSignup = (event) => {
     // Prevent the default form submission behavior
     event.preventDefault();
     // Get email and password input elements and values:
-    var nameInput = document.querySelector('input[name="name"]');
-    var nameValue = nameInput.value;
-    var emailInput = document.querySelector('input[name="email"]');
-    var emailValue = emailInput.value;
-    var passwordInput = document.querySelector('input[name="password"]');
-    var passwordValue = passwordInput.value;
-    var confirmPassInput = document.querySelector('input[name="confirmPass"]');
-    var confirmPassValue = confirmPassInput.value;
-    // Check if email or password is empty (let the form handle it).
-    if (!nameValue || !emailValue || !passwordValue || !confirmPassValue)
-      return;
-    // Perform validation if email and password are according to the rules.
+    const emailValue = emailRef.current.value;
+    const fullNameValue = fullNameRef.current.value;
+    const passwordValue = passwordRef.current.value;
+    const confirmPassValue = confirmPassRef.current.value;
+
+    //TESTS:
+      // Check if passwords match
+      if (passwordValue !== confirmPassValue) {
+        displayError("Passwords do not match", confirmPassRef, errorDisplayed);
+        return;
+      }
+      // Perform validation if email is according to the rule.
     if (!isValidEmail(emailValue)) {
-      displayError("Invalid email address", emailInput);
+      displayError("Invalid email address", emailRef, errorDisplayed);
       return;
     }
-    if (!isValidPassword(passwordValue)) {
-      displayError("Invalid password.", passwordInput);
-      return;
-    }
-    if (!IsPasswordsMatch(passwordValue, confirmPassValue)) {
-      displayError("Passwords do not match.", confirmPassInput);
-      return;
-    }
-    /*// Send data to backend
+    // Send data to backend
       axios
       .post(`${baseurl}/register`, {
-        name: nameValue,
-        phone: phoneValue,
+        name: fullNameValue,
         email: emailValue,
         password: passwordValue,
       })
@@ -51,8 +52,10 @@ function Signup() {
         navigate("/");
       })
       .catch((error) => {
-        console.error("Error registering user", error);
-      });*/
+        // Failed login, Display error message to user
+        displayError("Error registering user", passwordRef,errorDisplayed);
+        errorDisplayed = true;
+      });
   };
 
   return (
@@ -68,6 +71,7 @@ function Signup() {
               <User />
             </span>
             <input
+              ref={fullNameRef}
               name="name"
               required
               className="w-full h-full border-none outline-none pl-1 pr-25 font-medium"
@@ -82,6 +86,7 @@ function Signup() {
               <Mail />
             </span>
             <input
+              ref={emailRef}
               name="email"
               required
               className="w-full h-full border-none outline-none pl-1 pr-25 font-medium"
@@ -96,6 +101,7 @@ function Signup() {
               <Lock />
             </span>
             <input
+              ref={passwordRef}
               type="password"
               name="password"
               required
@@ -111,6 +117,7 @@ function Signup() {
               <Lock />
             </span>
             <input
+              ref={confirmPassRef}
               type="password"
               name="confirmPass"
               required
