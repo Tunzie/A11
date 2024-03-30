@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [notificationDropdownOpen, setNotificationDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  //const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   useEffect(() => {
     username = localStorage.getItem('username');
@@ -18,16 +18,10 @@ const Navbar = () => {
 const handleLogout = () => {
     localStorage.removeItem('username');
     window.location.reload();
+    navigate("/");
 };
 
-  //Handle 
-  const handleNotificationButtonClick = () => {
-    setNotificationDropdownOpen(!notificationDropdownOpen);
-    if (userDropdownOpen) {
-      setUserDropdownOpen(false);
-    }
-  };
-
+  //Handle User button dropdown menu
   const handleUserButtonClick = () => {
     setUserDropdownOpen(!userDropdownOpen);
     if (notificationDropdownOpen) {
@@ -105,63 +99,6 @@ const handleLogout = () => {
             <div className="relative">
               <button
                 type="button"
-                data-dropdown-toggle="notification-dropdown"
-                className="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                onClick={handleNotificationButtonClick}
-              >
-                <span className="sr-only">View notifications</span>
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 14 20"
-                >
-                  <path d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z" />
-                </svg>
-              </button>
-
-              {notificationDropdownOpen && (
-                <div
-                  className="absolute right-0 mt-2 w-56 origin-top-right bg-white rounded-md shadow-lg dark:bg-gray-700 dark:ring-1 dark:ring-gray-600 dark:ring-opacity-70 ring-gray-300 ring-opacity-70 focus:outline-none"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="user-menu-button"
-                  tabIndex="-1"
-                >
-                  <div className="py-1" role="none">
-                    <a
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                      tabIndex="-1"
-                      id="user-menu-item-0"
-                    >
-                      My Profile
-                    </a>
-                    <a
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                      tabIndex="-1"
-                      id="user-menu-item-1"
-                    >
-                      Account Settings
-                    </a>
-                    <a
-                      className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      role="menuitem"
-                      tabIndex="-1"
-                      id="user-menu-item-2"
-                    >
-                      Sign out
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="relative">
-              <button
-                type="button"
                 className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button"
                 onClick={handleUserButtonClick}
@@ -176,11 +113,11 @@ const handleLogout = () => {
               {userDropdownOpen && (
           <div className="absolute right-0 mt-2 w-56 origin-top-right bg-white rounded-md shadow-lg dark:bg-gray-700 dark:ring-1 dark:ring-gray-600 dark:ring-opacity-70 ring-gray-300 ring-opacity-70 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabIndex="-1">
             <div className="py-1" role="none">
-              {userLoggedIn ? (
+              {username ? (
                 <>
-                  <p className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400">User Email</p>
-                  <a className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" tabIndex="-1" id="user-menu-item-0">
-                    My Profile
+                  <p className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400">Hello, {username}</p>
+                  <a className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" tabIndex="-1" id="user-menu-item-0" onClick={() => navigate("/")}>
+                    Home
                   </a>
                   <a className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" tabIndex="-1" id="user-menu-item-1" onClick={() => navigate("/settings")}>
                     Account Settings

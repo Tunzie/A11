@@ -7,15 +7,6 @@ import Footer from "./Footer";
 const Dashboard = ({ children }) => {
   let username = localStorage.getItem("username");
 
-  useEffect(() => {
-    username = localStorage.getItem("username");
-  }, [username]);
-
-  //logs the current user out
-  const handleLogout = () => {
-    localStorage.removeItem("username");
-    window.location.reload();
-  };
   return (
     <div className="flex flex-col w-full h-screen">
       <div className="w-full">

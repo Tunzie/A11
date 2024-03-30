@@ -26,7 +26,9 @@ const ContactUs = () => {
   
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
+    if (!username) navigate("/login");
     const userId = localStorage.getItem("userID");
     const { firstName, lastName, email, subject, message } = formData; // Destructure values from formData state
     const requestOptions = {
@@ -49,7 +51,6 @@ const ContactUs = () => {
       });
   };
   
-
 
   return (
     <div className="py-2 px-4 mx-auto max-w-screen-md">
