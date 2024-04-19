@@ -14,6 +14,7 @@ const AirQuality = () => {
   const [currentLng, setCurrentLng] = useState(null);
   const markersRef = useRef([]);
   const [lastEuropeanAQI, setLastEuropeanAQI] = useState(null);
+  const [lastTime, setLastTime] = useState(null);
   const [status, setStatus] = useState(null);
 
 
@@ -80,6 +81,23 @@ const AirQuality = () => {
         return 'text-gray-600';
     }
   };
+
+  const getStatusInst = (status) => {
+    switch (status) {
+      case 'Good':
+        return "The air quality is ideal for most individuals; enjoy your normal outdoor activities.";
+      case 'Fair':
+        return "The air quality is generally acceptable for most individuals. However, sensitive groups may experience minor to moderate symptoms from long-term exposure.";
+      case 'Moderate':
+        return "The air has reached a high level of pollution and is unhealthy for sensitive groups. Reduce time spent outside if you are feeling symptoms such as difficulty breathing or throat irritation.";
+      case 'Poor':
+        return "Health effects can be immediately felt by sensitive groups. Healthy individuals may experience difficulty breathing and throat irritation with prolonged exposure. Limit outdoor activity.";
+      case 'Very Poor':
+        return "Health effects will be immediately felt by sensitive groups and should avoid outdoor activity. Healthy individuals are likely to experience difficulty breathing and throat irritation; consider staying indoors and rescheduling outdoor activities.";
+      case 'Extremely Poor':
+        return "Any exposure to the air, even for a few minutes, can lead to serious health effects on everybody. Avoid outdoor activities.";
+    }
+  };
   
 
   const buildUrl = (variable) => {
@@ -124,8 +142,10 @@ const AirQuality = () => {
       createGraph(data, dataset, elementid);  
       // Extract and return the last European AQI value
       setLastEuropeanAQI(data.hourly.european_aqi[data.hourly.european_aqi.length - 1]);
-      const newStatus = getStatus(data.hourly.european_aqi[data.hourly.european_aqi.length - 1]); // Corrected from lastAQI to lastEuropeanAQI
+      const newStatus = getStatus(data.hourly.european_aqi[data.hourly.european_aqi.length - 1]); 
       setStatus(newStatus);
+      const timestamp = data.hourly.time[data.hourly.time.length -1];
+      setLastTime(formatAMPM(new Date(timestamp * 1000)));
     } catch (err) {
       console.log(err);
     }
@@ -260,16 +280,13 @@ const AirQuality = () => {
               Status: <span className={`font-bold ${getStatusColor(status)}`}>{status}</span>
             </p>
             <p className="text-gray-700">
-              Pollutants: <span className="font-bold">PM2.5, PM10</span>
-            </p>
-            <p className="text-gray-700">
-              Health Advisory: <span className="font-bold">No health impacts</span>
+              Health Advisory: <span className="font-bold">{getStatusInst(status)}</span>
             </p>
           </div>
           <div className="flex justify-between items-center mt-4">
             <div className="text-gray-600">
               <i className="fas fa-chart-line mr-1"></i>
-              Last Updated: 10:30 AM
+              Last Updated: {lastTime}
             </div>
           </div>
         </div>
