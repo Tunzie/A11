@@ -84,19 +84,13 @@ app.post('/login', async (req, res) => {
 });
 
 
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin,X-Requested-With,Content-Type,Accept,content-type,application/json"
-  );
-  next("Server use Header Error");
+app.use(function (err, req, res, next) {
+  console.error(err);
+  res.status(500).send('Server Error');
 });
 
-const PORT = process.env.PORT || 3004;
+
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   DB();
   console.log(`Server running on port ${PORT}`);
