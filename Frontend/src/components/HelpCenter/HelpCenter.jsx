@@ -11,10 +11,11 @@ function HelpCenter() {
       displays real-time environmental data like air quality, water quality, and weather conditions from various sensors or APIs
       </p>
       <h1 className="mb-4 text-2xl font-extrabold text-center text-gray-900">
-      Main Features:
+      Dashboard Main Features:
       </h1>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
-      Air Quality:
+      Air Quality: Displays an updated real-time image of the air data such as: particulate pollution, PM₁₀, O₃ and a general air quality 
+      score throughout the day at a selected point on the world map. In addition, the user has the option of filtering the data in the graphs by: hour, day and month.
       </p>
       <p className="mb-4 font-light text-lefttext-gray-900 sm:text-xl">
       Water Quality:

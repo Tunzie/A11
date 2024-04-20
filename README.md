@@ -6,7 +6,8 @@ This is a web application built with JavaScript, Tailwind, and React to provide 
 
 ## Features
 
-- **Air Quality**: 
+- **Air Quality**: Displays an updated real-time image of the air data such as: particulate pollution, PM₁₀, O₃ and a general air quality 
+      score throughout the day at a selected point on the world map. In addition, the user has the option of filtering the data in the graphs by: hour, day and month.
 - **Water Quality**: 
 - **Land Quality**: 
 - **User Authentication**: Secure user authentication system to ensure data privacy and protection.
