@@ -31,12 +31,12 @@ const handleUserButtonClick = () => {
 
   return (
     <header className="antialiased">
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex justify-start items-center">
             <button onClick={() => navigate("/")} className="flex mr-4">
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Eden Initiative
+                Eden Initiative Dashboard
               </span>
             </button>
           </div>

@@ -4,7 +4,7 @@ import './Settings.css';
 const Settings = () => {
   
   return (
-    <div className="container mx-auto p-4">
+    <div className="container h-screen mx-auto p-4">
       <h1 className="text-2xl text-center font-bold mb-4">Environmental Dashboard Settings</h1>
       <form id="settingsForm" className="max-w-md mx-auto">
         <div className="mb-4">
@@ -50,7 +50,9 @@ const Settings = () => {
             <option value="de">German</option>
           </select>
         </div>
-        <button type="submit" className="button-style">Save Settings</button>
+        <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700">
+  Save Settings
+</button>
       </form>
     </div>
   );

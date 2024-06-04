@@ -9,7 +9,7 @@ import Signup from "./components/Signup/Signup";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Home from "./components/Dashboard/Home";
 import Settings from "./components/Settings/Settings";
-import LandQuality from "./components/LandQuality/LandQuality";
+import LandQuality from "./components/LandQuality/landQuality";
 import WaterQuality from "./components/WaterQuality/WaterQuality";
 import HelpCenter from "./components/HelpCenter/HelpCenter";
 import AirQuality from "./components/AirQuality/AirQuality";

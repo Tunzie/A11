@@ -1,22 +1,22 @@
 import React from "react";
 import "./Dashboard.css";
-import Logo from "../../Assets/logo.png";
+import Logo2 from "../../Assets/logo-no-background.svg";
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 pb-10 pt-20 dark:bg-dark lg:pb-1 lg:pt-[20px]">
+    <footer className="relative z-10 pb-10 pt-20 bg-gray-800 lg:pb-1 lg:pt-[20px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
             <div className="mb-10 w-full">
               <a href="#" className="mb-6 inline-block max-w-[160px]">
                 <img
-                  src="../../Assets/Logo.png"
+                  src={Logo2}
                   alt="logo1"
                   className="max-w-full dark:hidden"
                 />
                 <img
-                  src={"#"}
+                  src={Logo2}
                   alt="logo2"
                   className="hidden max-w-full dark:block"
                 />

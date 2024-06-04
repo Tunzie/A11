@@ -4,7 +4,7 @@ import { Wind, Droplet, CloudSunRain, LandPlot } from 'lucide-react';
 function Home() {
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <div className="grid grid-cols-1 h-screen gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
       <div className="bg-white p-4 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-blue-600 mb-2">Air Quality</h2>
         <Wind size={75} className="mx-auto mb-2" />

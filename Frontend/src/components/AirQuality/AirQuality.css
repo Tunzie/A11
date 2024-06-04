@@ -70,14 +70,4 @@ canvas {
   background-color: white;
   border-radius: 10px;
 }
-h1 {
-  font-size: xx-large;
-}
-button {
-  border-radius: 50px;
-  font-size: x-large;
-  padding: 1px;
-  margin: 2px;
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-}
+

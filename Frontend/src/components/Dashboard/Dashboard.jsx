@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "./Navbar";
-import SidePanel from "./SidePanel";
+import Sidebar from "./Sidebar";
 import Content from "./Content";
 import Footer from "./Footer";
 
 const Dashboard = ({ children }) => {
-  let username = localStorage.getItem("username");
-
   return (
     <div className="flex flex-col w-full h-screen">
       <div className="w-full">
         <Navbar />
       </div>
 
-      <div className="flex ">
-        <SidePanel />
-        <div className="flex-1 pl-1 pt-1 bg-slate-300">
+      <div className="flex flex-1">
+        <Sidebar />
+        <div className="flex-1 pl-1 pt-1 bg-slate-300 h-full overflow-y-auto">
           <Content>{children}</Content>
         </div>
       </div>
 
-      <div className="w-full h-1/6">
+      <div className="w-full">
         <Footer />
       </div>
     </div>

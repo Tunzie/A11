@@ -11,7 +11,7 @@ const ContactUs = () => {
   const subjectRef = useRef()
   const navigate = useNavigate();
   const username = localStorage.getItem("username");
-
+// Initialize state for form data
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,44 +20,54 @@ const ContactUs = () => {
     message: ''
   });
 
-  useEffect(() => {
-    if (!username) {
-      navigate("/login");
-    }
-  }, [username, navigate]);
+ // useEffect hook to check if the user is logged in
+useEffect(() => {
+  // If there is no username, redirect to login page
+  if (!username) {
+    navigate("/login");
+  }
+}, [username, navigate]); // Dependencies: username and navigate
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+// Handle change in form input fields
+const handleChange = (e) => {
+  const { name, value } = e.target; // Destructure name and value from event target
+  // Update the formData state with new value for the specific input field
+  setFormData({ ...formData, [name]: value });
+};
+
+// Handle form submission
+const handleSubmit = (e) => {
+  e.preventDefault(); // Prevent the default form submission behavior
+
+  const userId = localStorage.getItem("userID"); // Retrieve user ID from local storage
+  const { firstName, lastName, email, subject, message } = formData; // Destructure values from formData state
+
+  // Prepare request options for the fetch call
+  const requestOptions = {
+    method: "POST", // Set HTTP method to POST
+    headers: { "Content-Type": "application/json" }, // Set request headers
+    body: JSON.stringify({
+      firstName: firstName,
+      lastName: lastName,
+      mail: email, // Use 'email' instead of 'mail' as key
+      subject: subject,
+      info: message, // Use 'message' instead of 'info' as key
+      userId: userId, // Include user ID in the request body
+    }),
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const userId = localStorage.getItem("userID");
-    const { firstName, lastName, email, subject, message } = formData; // Destructure values from formData state
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        firstName: firstName,
-        lastName: lastName,
-        mail: email, // Use email instead of mail
-        subject: subject,
-        info: message, // Use message instead of info
-        userId: userId,
-      }),
-    };
-    fetch(`${baseurl}/sendmail`, requestOptions)
-      .then((response) => response)
-      .then(() => setCheckMail(true))
-      .catch(() => {
-        setErrorMail(true);
-      });
-  };
+  // Make the fetch call to send mail
+  fetch(`${baseurl}/sendmail`, requestOptions)
+    .then((response) => response) // Handle the response
+    .then(() => setCheckMail(true)) // Set checkMail state to true on successful response
+    .catch(() => {
+      setErrorMail(true); // Set errorMail state to true if there is an error
+    });
+};
   
 
   return (
-    <div className="py-2 px-4 mx-auto max-w-screen-lg">
+    <div className="py-2 px-4 mx-auto h-screen max-w-screen-lg">
       <h2 className="mb-4 text-4xl font-extrabold text-center text-gray-900">
         Contact Us
       </h2>
