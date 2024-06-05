@@ -42,6 +42,7 @@ const Sidebar = () => {
       <div className="flex flex-col mt-5 space-y-2 overflow-y-auto">
         {navItems.map((item) => (
           <button
+            title={item.label}
             key={item.path}
             className={`nav-links flex items-center w-full p-4 rounded hover:bg-[#FF8C8C] ${location.pathname === item.path ? "bg-[#FF8C8C] text-white" : "text-gray-100"}`}
             onClick={() => handleButtonClick(item.path)}
